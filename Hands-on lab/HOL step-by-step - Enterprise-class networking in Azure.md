@@ -1038,7 +1038,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 ### Task 1: Create a virtual machine to validate connectivity
 
-1. Create a new virtual machine in the OnPremVnet virtual network. In the Azure portal, select **+ Create a resource** and select **Windows Server 2016 Datacenter**.
+1. Create a new virtual machine in the OnPremVnet virtual network. In the Azure portal, select **+ Create a resource** and select **Windows Server 2019 Datacenter**.
 
 2. On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
 
@@ -1052,7 +1052,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
     - Availability options: **No infrastructure redundancy required**
 
-    - Image: **[smalldisk] Windows Server 2016 Datacenter - Gen1**
+    - Image: **[smalldisk] Windows Server 2019 Datacenter - Gen1**
 
     - Size: **Standard DS1 v2**
 
