@@ -29,7 +29,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [Enterprise-class networking in Azure before the hands-on lab setup guide](#enterprise-class-networking-in-azure-before-the-hands-on-lab-setup-guide)
   - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Task 1: Create a virtual machine to execute the lab in](#task-1-create-a-virtual-machine-to-execute-the-lab-in)
+    - [Task 1: Create a virtual machine to execute the PowerShell commands in the lab](#task-1-create-a-virtual-machine-to-execute-the-powershell-commands-in-the-lab)
     - [Task 2: Download hands-on lab step-by-step support files](#task-2-download-hands-on-lab-step-by-step-support-files)
     - [Task 3: Create a Virtual Network (hub) with Subnets](#task-3-create-a-virtual-network-hub-with-subnets)
     - [Task 4: Use the Azure portal for a template deployment](#task-4-use-the-azure-portal-for-a-template-deployment)
@@ -41,21 +41,21 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Requirements
 
-You must have a working Azure subscription to carry out this hands-on lab step-by-step without a spending cap to deploy the Barracuda firewall from the Azure Marketplace.
+You must have a working Azure subscription [without a spending limit](https://learn.microsoft.com/azure/cost-management-billing/manage/spending-limit#why-you-might-want-to-remove-the-spending-limit) to deploy the Barracuda firewall from the Azure Marketplace in order to carry out this step-by-step, hands-on lab.
 
 ## Before the hands-on lab
 
 Duration: 15 minutes
 
-### Task 1: Create a virtual machine to execute the lab in
+### Task 1: Create a virtual machine to execute the PowerShell commands in the lab
 
 If you are working on a machine that cannot run PowerShell, carry out this task. Only do this if you are not running the commands on your local machine and are provisioning a VM to perform the steps.
 
 1. Launch a browser, and navigate to <https://portal.azure.com>. Once prompted, login with your Microsoft Azure credentials. If asked, choose whether your account is an organization account or just a Microsoft Account.
 
-2. Expand the portal's left navigation by clicking **Expand portal menu** on the top left. Select **+Create a resource** on the left navigation, and in the search box, type in **Visual Studio 2019 Latest**, and press enter. In the list of results, select **Visual Studio 2019 Latest**. From the drop down, select **Visual Studio 2019 Community (latest release) on Windows Server 2019 x64**. Then select **Create**.
+2. Expand the portal's left navigation by clicking **Expand portal menu** on the top left. Select **+Create a resource** on the left navigation, and in the search box, type in **Visual Studio 2022**, and press enter. In the list of results, select **Visual Studio 2022**. From the drop down, select **Visual Studio 2022 Community on Windows Server 2022 (x64)**. Then select **Create**.
 
-    ![In this screenshot, the Visual Studio 2019 Latest Azure Marketplace option is depicted with the 'Select a software plan' dropdown menu open with the required image and Create button selected.](images/Setup/SetupVS.png "Visual Studio image selection")
+    ![In this screenshot, the Visual Studio 2022 Azure Marketplace option is depicted with the 'Select a software plan' dropdown menu open with the required image and Create button selected.](images/Setup/SetupVS.png "Visual Studio image selection")
 
 3. On the **Create a virtual machine** blade, on the **Basics** tab, select the following configuration and select **Next : Disks**:
 
@@ -69,7 +69,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     - Availability options: **No infrastructure redundancy required**.
 
-    - Image: **Visual Studio 2019 Community (latest release) on Windows Server 2019 (x64)**
+    - Security: **Standard**
+
+    - Image: **Visual Studio 2022 Community on Windows Server 2022 (x64) - Gen 1**
+
+    - VM architecture: **x64**
 
     - Size: **Standard DS1 v2** or **Standard D2s v3**
 
@@ -81,13 +85,12 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     - Select inbound ports: **RDP (3389)**
 
-    - License type: **Windows server**
-
-    >**Note**: If the Azure Subscription you are using is **NOT** a trial Azure subscription, you may want to choose the **Standard D2s v3** to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with **Standard DS1 v2**.
+    >**Note**: If the Azure Subscription you are using is **NOT** a trial Azure subscription, you may want to choose the **Standard D2s v3** to have more power in this LABVM. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with **Standard DS1 v2**.
 
 4. On the **Create a virtual machine** blade, on the **Disks** tab, select the following configuration and select **Review + create**:
 
     - OS disk type: **Standard SSD**
+    - Delete with VM: **Checked**
 
 5. Ensure that the validation passed and select **Create**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
 
@@ -97,7 +100,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 7. On the **LABVM** blade, first select **Connect**, then select **RDP**, and then select **Download RDP File** to establish a Remote Desktop session.
 
-    ![In this screenshot, the Azure portal page of the newly created virtual machine is depicted with the Connect button highlighted.](images/Setup/image13.png "Azure Portal VM page")
+    ![In this screenshot, the Azure portal page of the newly created virtual machine is depicted with the Connect menu expanded. The Connect button and RDP option are highlighted.](images/Setup/image13.png "Azure Portal VM page")
 
 8. Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
 
@@ -111,36 +114,22 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button selected.](images/Setup/image14.png "Remote Desktop Connection warning")
 
-11. When logging on for the first time, there will be a prompt asking about network discovery. Select **No**.
-
-    ![In this screenshot, the Network Discovery prompt of the virtual machine we connected to is depicted with the No button selected.](images/Setup/image15.png "Network Discovery prompt")
-
-12. Notice that Server Manager opens by default. Select **Local Server** on the left.
-
-    ![In this screenshot, Server Manager window is depicted with Local Server selected on the left.](images/Setup/image16.png "Server Manager menu")
-
-13. In the Local Server pane, ensure the **IE Enhanced Security Configuration** is set to **Off**. If that is not the case, select **On**.
-
-    ![In this screenshot, the Local Server section of Server Manager is depicted with IE Enhanced Security Configuration set to On, with the On button selected.](images/Setup/image17.png "Local Server section")
-
-14. Change the setting to **Off** for Administrators, and select **OK**.
-
-    ![In this screenshot, the Internet Explorer Enhanced Security Configuration dialog box is depicted with Administrators set to Off, and the OK button selected.](images/Setup/image18.png "Internet Explorer Enhanced Security Configuration dialog box")
+11. Server Manager opens by default. This can be closed.
 
 ### Task 2: Download hands-on lab step-by-step support files
 
-1. Within the Remote Desktop session to **LABVM**, open Internet Explorer and download the zipped hands-on lab step-by-step student files by navigating to this link:
+1. Within the Remote Desktop session to **LABVM**, open Microsoft Edge (pinned in the taskbar) and download the zipped hands-on lab step-by-step student files by navigating to this link:
     <https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab/labfiles/ECN-Hackathon.zip>.
 
-2. Extract the downloaded files into the directory **C:\\ECN-Hackathon**.
+2. Extract the downloaded ECN-Hackathon.zip file into the directory **C:\\ECN-Hackathon**.
 
-    ![In File Explorer, ECN-Hackathon is selected, and from its menu, Extract All is selected.](images/Setup/image23.png "File Explorer")
+    ![In File Explorer, the Downloads folder and ECN-Hackathon.zip are selected. The context menu is showing for the ECN-Hackathon.zip file, and "Extract All..." is selected.](images/Setup/image23.png "File Explorer")
 
     ![In the Extract Files window, Files are being extracted to C:\\ECH-Hackathon, and the Extract button is selected.](images/Setup/image24.png "Extract Files window")
 
 ### Task 3: Create a Virtual Network (hub) with Subnets
 
-1. Connect to the Azure portal. From the left navigation, select **+ Create a resource**, then in the **Search the Marketplace** box, search for and select **Virtual Network** then select **Create**.
+1. From your **LABVM**, connect to the Azure portal, expand the left navigation select **+ Create a resource**, then in the **Search the Marketplace** box, search for and select **Virtual Network** then select **Create**.
 
 2. On the **Basics** tab of the **Create virtual network** blade, enter the following information:
 
@@ -166,11 +155,9 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
        - Subnet address range: **10.8.0.0/25**
 
-       - NAT Gateway: **None**
-
 5. Once complete, click **Review + Create** then once the validation passes, click **Create**.
 
-6. Go to the WGVNetRG2 Resource Group, and select the **WGVNet2** blade if you're not there already, and select **Subnets** under **Settings** on the left.
+6. Go to the WGVNetRG2 Resource Group, select the **WGVNet2** blade, and select **Subnets** under **Settings** on the left.
 
     ![This is a subnet configuration.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image32.png "Subnets blade")
 
@@ -180,11 +167,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 8. On the **Add subnet** blade, enter the following information:
 
-    - Subnet name: **DataSubnet**
+    - Name: **DataSubnet**
 
-    - Subnet address range: **10.8.1.0/25**
+    - Address range: **10.8.1.0/25**
 
-    - NAT Gateway: **None**
+    - NAT gateway: **None**
 
     - Network security group: **None**
 
@@ -196,11 +183,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 10. When the subnet has completed its configuration your subnet deployment will look like the following screenshot.
 
-     ![In this screenshot, the Azure portal Subnets blade of the WGVNet2 virtual network is depicted with the newly created subnets listed.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image158.png "Subnets blade")
+     ![In this screenshot, the Azure portal Subnets blade of the WGVNet2 virtual network is depicted with the newly created subnets listed.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image158.png "Subnets blade")  
 
 ### Task 4: Use the Azure portal for a template deployment
 
-> **Note:** If you have not downloaded the student files see this section in the before getting started section of this hands-on lab.
+> **Note:** If you have not downloaded the student files, complete [Task 2: Download hands-on-step-by-step support files](https://github.com/microsoft/MCW-Enterprise-class-networking/blob/master/Hands-on%20lab/Before%20the%20HOL%20-%20Enterprise-class%20networking.md#task-2-download-hands-on-lab-step-by-step-support-files).
 
 1. On your LABVM, open the **C:\\ECN-Hackathon** folder which contains the student files for this lab.
 
@@ -208,7 +195,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 3. Expand the left navigation and choose **+ Create a resource**, and search for and select **template deployment (deploy using custom templates)**.
 
-    ![In this screenshot, the New blade of the Azure portal is depicted with 'Template deployment' entered in the 'Search the Marketplace' box.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image56.png "New blade")
+    ![In this screenshot, the 'Create a resource' blade is depicted with 'Template deployment (deploy using custom templates)' entered in the 'Search the Marketplace' box.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image56.png "New blade")
 
 4. On the **Template deployment (deploy using custom templates)** blade, select **Create**.
 
@@ -223,11 +210,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 7. Update the following parameters to reference the **WGVNet2** virtual network in the **WGVNetRG2** resource group and to the **AppSubnet** and **DataSubnet** subnets.
 
     - Existing Virtual Network Name: **WGVNet2**
-
+  
     - Existing Virtual Network Resource Group: **WGVNetRG2**
-
+  
     - Web Subnet: **AppSubnet**
-
+  
     - Data Subnet: **DataSubnet**
 
     ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the parameters listed above selected with their proper values.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image59.png "Template parameters")
@@ -248,7 +235,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 3. On the **WGWEB1** blade, first select **Connect**, then select **RDP**, and then choose **Download RDP file** to establish a Remote Desktop session.
 
-    ![In this screenshot, the WGWEB1 virtual machine blade of the Azure portal is depicted with the Connect button selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image61.png "Virtual machine blade")
+    ![In this screenshot, the WGWEB1 virtual machine blade of the Azure portal is depicted with the Connect context menu expanded. The Connect button and the RDP option are selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image61.png "Virtual machine blade")
 
 4. Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
 
@@ -264,16 +251,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 7. Notice that Server Manager opens by default. Close Server Manager.
 
-8. You will now ensure the CloudShop application is up and running. Open Internet Explorer, and browse to both the WGWEB1 and WGWEB2 servers:
+8. You will now ensure the CloudShop application is up and running. Open Microsoft Edge from the Start menu, and browse to both CloudShop sites running on the WGWEB1 and WGWEB2 servers using the URLs below. The output will look like the following image.
 
-    ```http
-    http://wgweb1
-    ```
+    - WGWEB1 CloudShop site: <http://wgweb1>
+    - WGWEB2 CloudShop site: <http://wgweb2>
 
-    ```http
-    http://wgweb2
-    ```
-
-    ![In this screenshot, two instances of Internet Explorer are open - one for wgweb1 and one for wgweb2. Each browser's URL and server name in the output of the CloudShop demo app are highlighted.](images/cloudshop-demo-wgweb1-and-wgweb2.png "Screenshots of wgweb1 and wgweb2 from within an RDP session to wgweb1")
+    ![In this screenshot, the Cloud Shop app is displayed. WGWEB2 is highlighted at the end of the title 'CloudShop Demo - Products - running on WGWEB2'.](images/bhol-test-cloudshop-app.png "CloudShop app running on WGWEB2")
 
 You should follow all steps provided *before* performing the Hands-on lab.
