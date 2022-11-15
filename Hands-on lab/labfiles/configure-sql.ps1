@@ -16,9 +16,9 @@ Restart-Service -Name "MSSQLSERVER" -Force
 Invoke-Sqlcmd -ServerInstance Localhost -Database "master" -Query "ALTER LOGIN sa ENABLE" 
 Invoke-Sqlcmd -ServerInstance Localhost -Database "master" -Query "ALTER LOGIN sa WITH PASSWORD = 'demo@pass123'"
 
+# Updated for SQL 2019
 $mdf = New-Object Microsoft.SqlServer.Management.Smo.RelocateFile("AdventureWorks2012_Data", "C:\Data\AdventureWorks2012.mdf")
 $ldf = New-Object Microsoft.SqlServer.Management.Smo.RelocateFile("AdventureWorks2012_Log", "C:\Logs\AdventureWorks2012.ldf")
-
 
 # Restore the database from the backup
 Restore-SqlDatabase -ServerInstance Localhost -Database AdventureWorks `
