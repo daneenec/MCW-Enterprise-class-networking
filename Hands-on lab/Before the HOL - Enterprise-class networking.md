@@ -47,9 +47,9 @@ You must have a working Azure subscription to carry out this hands-on lab step-b
 
 Duration: 15 minutes
 
-If you are working on a machine that cannot run PowerShell, carry out this task. Only do this if you are not running the commands on your local machine and are provisioning a VM to perform the steps.
-
 ### Task 1: Create a virtual machine to execute the lab in
+
+If you are working on a machine that cannot run PowerShell, carry out this task. Only do this if you are not running the commands on your local machine and are provisioning a VM to perform the steps.
 
 1. Launch a browser, and navigate to <https://portal.azure.com>. Once prompted, login with your Microsoft Azure credentials. If asked, choose whether your account is an organization account or just a Microsoft Account.
 
@@ -140,7 +140,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 ### Task 3: Create a Virtual Network (hub) with Subnets
 
-1. From your **LABVM**, connect to the Azure portal, expand the left navigation select **+ Create a resource**, then in the **Search the Marketplace** box, search for and select **Virtual Network** then select **Create**.
+1. Connect to the Azure portal. From the left navigation, select **+ Create a resource**, then in the **Search the Marketplace** box, search for and select **Virtual Network** then select **Create**.
 
 2. On the **Basics** tab of the **Create virtual network** blade, enter the following information:
 
@@ -166,6 +166,8 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
        - Subnet address range: **10.8.0.0/25**
 
+       - NAT Gateway: **None**
+
 5. Once complete, click **Review + Create** then once the validation passes, click **Create**.
 
 6. Go to the WGVNetRG2 Resource Group, and select the **WGVNet2** blade if you're not there already, and select **Subnets** under **Settings** on the left.
@@ -178,9 +180,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 8. On the **Add subnet** blade, enter the following information:
 
-    - Name: **DataSubnet**
+    - Subnet name: **DataSubnet**
 
-    - Address range: **10.8.1.0/25**
+    - Subnet address range: **10.8.1.0/25**
+
+    - NAT Gateway: **None**
 
     - Network security group: **None**
 
@@ -258,23 +262,9 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button and 'Don't ask me again' box selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image62.png "Remote Desktop Connection warning dialog box")
 
-7. When logging on for the first time, you will have a prompt asking about network discovery. Select **No**.
+7. Notice that Server Manager opens by default. Close Server Manager.
 
-    ![In this screenshot, the Network Discovery prompt of the virtual machine we connected to is depicted with the No button selected.](images/Setup/image15.png "Networks prompt")
-
-8. Notice that Server Manager opens by default. Choose **Local Server**.
-
-    ![In this screenshot, Server Manager window is depicted with Local Server selected on the left.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image63.png "Server Manager menu")
-
-9. In the Local Server pane, ensure the **IE Enhanced Security Configuration** is set to **Off**. If that is not the case, select **On**.
-
-    ![IIn this screenshot, the Local Server section of Server Manager is depicted with IE Enhanced Security Configuration set to On, with the On button selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image64.png "Under Essentials")
-
-10. If needed, change to **Off** for Administrators, and select **OK**.
-
-    ![In this screenshot, the Internet Explorer Enhanced Security Configuration dialog box is depicted with Administrators set to Off, and the OK button selected.](images/Setup/image18.png "Internet Explorer Enhanced Security Configuration")
-
-11. You will now ensure the CloudShop application is up and running. Open Internet Explorer, and browse to both the WGWEB1 and WGWEB2 servers:
+8. You will now ensure the CloudShop application is up and running. Open Internet Explorer, and browse to both the WGWEB1 and WGWEB2 servers:
 
     ```http
     http://wgweb1
@@ -283,5 +273,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
     ```http
     http://wgweb2
     ```
+
+    ![In this screenshot, two instances of Internet Explorer are open - one for wgweb1 and one for wgweb2. Each browser's URL and server name in the output of the CloudShop demo app are highlighted.](images/cloudshop-demo-wgweb1-and-wgweb2.png "Screenshots of wgweb1 and wgweb2 from within an RDP session to wgweb1")
 
 You should follow all steps provided *before* performing the Hands-on lab.
