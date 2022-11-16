@@ -234,7 +234,7 @@ Duration: 20 Minutes
 
 2. Select **+ Add**.
 
-    ![In this screenshot, the Peerings blade of the WGVNet1 Virtual Network resources is depicted. With the '+ Add' button selected.](images/image92.png "Virtual network blade")
+    ![In this screenshot, the Peerings blade of the WGVNet1 Virtual Network resources is depicted. With the '+ Add' button selected.](images/hol-ex2-task1-add-peerings-button.png "Virtual network blade")
 
 3. Set the following configuration for the new peering. Select **Add** to create the peering.
 
@@ -252,7 +252,7 @@ Duration: 20 Minutes
 
     - Traffic forwarded from remote virtual network: **Allow (default)**
 
-    ![In this screenshot, the 'Add peering' blade of the Azure portal is depicted with the required settings specified above selected.](images/image171.png "WGVNet1 add peering blade")
+    ![In this screenshot, the 'Add peering' blade of the Azure portal is depicted with the required settings specified above selected.](images/hol-ex2-task1-add-peering-blade.png "WGVNet1 add peering blade")
 
 ## Exercise 3: Configure Network Security Groups and Application Security Groups
 
