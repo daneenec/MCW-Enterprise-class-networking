@@ -274,7 +274,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     - Region: **(US) South Central US** (This must match the location in which you created the **WGVNet2** virtual network.)
 
-    ![In this screenshot, the 'Create an application security group' blade of the Azure portal is depicted with the above specified settings selected.](images/image140.png "Create Web Tier ASG")
+    ![In this screenshot, the 'Create an application security group' blade of the Azure portal is depicted with the above specified settings selected.](images/hol-ex3-task1-create-application-security-group-web-tier.png "Create Web Tier ASG")
 
 3. On the **Create an application security group** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**.
 
@@ -288,7 +288,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     - Region: **(US) South Central US** (This must match the location in which you created the **WGVNet2** virtual network.)
 
-    ![In this screenshot, the 'Create an application security group' blade of the Azure portal is depicted with the above specified settings selected.](images/image141.png "Create Data Tier ASG")
+    ![In this screenshot, the 'Create an application security group' blade of the Azure portal is depicted with the above specified settings selected.](images/hol-ex3-task1-create-application-security-group-data-tier.png "Create Data Tier ASG")
 
 ### Task 2: Configure application security groups
 
@@ -300,7 +300,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
 4. On the **Configure the application security groups** blade, in the **Application security groups** drop-down list, select **WebTier**, then **Save**.
 
-    ![In this screenshot, the 'Configure the application security groups' blade is depicted with the WebTier app security group selected in the 'Application security groups' dropdown and the Save button selected..](images/image142.png "Configure Web Tier ASG")
+    ![In this screenshot, the 'Configure the application security groups' blade is depicted with the WebTier app security group selected in the 'Application security groups' dropdown and the Save button selected..](images/hol-ex3-task2-configure-web-tier-asg.png "Configure Web Tier ASG")
 
 5. Repeat steps 1-4, but this time for **WGWEB2** in order to assign to its network interface the **WebTier** application security group.
 
@@ -320,7 +320,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     - Region: **(US) South Central US** (This must match the location in which you created the **WGVNet2** virtual network.)
 
-    ![In this screenshot, the 'Create network security group' blade of the Azure portal is depicted with the required settings listed above selected.](images/image143.png "Create WGApp NSG")
+    ![In this screenshot, the 'Create network security group' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex3-task3-create-network-security-group.png "Create WGApp NSG")
 
 3. In the Azure Portal, navigate to **All Services**, type **Network security groups** the search box and select **Network security groups**.
 
@@ -350,7 +350,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     - Name: **AllowDataTierInboundTCP1433**
 
-    ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected.](images/image146.png "Configure WGAppNSG1 AllowDataTierInboundTCP1433 rule")
+    ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected.](images/hol-ex3-task3-add-inbound-security-rule-data-tier-inbound.png "Configure WGAppNSG1 AllowDataTierInboundTCP1433 rule")
 
 7. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
@@ -374,7 +374,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     - Name: **AllowAnyWebTierInboundTCP80**
 
-    ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected.](images/image147.png "Configure WGAppNSG1 AllowAnyWebTierInboundTCP80 rule")
+    ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected.](images/hol-ex3-task3-add-inbound-security-rule-web-tier-inbound.png "Configure WGAppNSG1 AllowAnyWebTierInboundTCP80 rule")
 
 9. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
@@ -398,7 +398,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     - Name: **AllowMgmtInboundAny3389**
 
-    ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected.](images/image179.png "Configure WGAppNSG1 AllowMgmtInboundAny3389 rule")
+    ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected.](images/hol-ex3-task3-add-inbound-security-rule-mgmt-inbound.png "Configure WGAppNSG1 AllowMgmtInboundAny3389 rule")
 
 11. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
@@ -424,7 +424,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     - Name: **DenyVNetDataTierInbound**
 
-    ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected.](images/image151.png "Configure WGAppNSG1 DenyVNetDataTierInbound rule")
+    ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected.](images/hol-ex3-task3-add-inbound-security-rule-deny-data-tier-inbound.png "Configure WGAppNSG1 DenyVNetDataTierInbound rule")
 
 13. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
@@ -450,7 +450,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     - Name: **DenyVNetWebTierInbound**
 
-    ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected..](images/image152.png "Configure WGAppNSG1 DenyVNetWebTierInbound rule")
+    ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected..](images/hol-ex3-task3-add-inbound-security-rule-deny-web-tier-inbound.png "Configure WGAppNSG1 DenyVNetWebTierInbound rule")
 
 15. On the **WGAppNSG1 - Inbound security rules** blade, select **Subnets** under **Settings** and then select **+ Associate**.
 
