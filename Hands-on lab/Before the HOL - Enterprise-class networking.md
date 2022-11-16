@@ -143,7 +143,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 3. Upon completion, it should look like the following screenshot. Validate the information is correct, and choose **Next: IP Addresses**.
 
-    ![In this screenshot, the Basics tab of the 'Create virtual machine' blade of the Azure portal is depicted with the required settings selected and the 'Next: IP Addresses' button selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image31.png "Create virtual network basics")
+    ![In this screenshot, the Basics tab of the 'Create virtual machine' blade of the Azure portal is depicted with the required settings selected and the 'Next: IP Addresses' button selected.](images/bhol-create-virtual-network.png "Create virtual network basics")
 
 4. On the **IP Addresses** tab of the **Create virtual network** blade. enter the following information:
 
@@ -161,11 +161,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 6. Go to the WGVNetRG2 Resource Group, select the **WGVNet2** blade, and select **Subnets** under **Settings** on the left.
 
-    ![This is a subnet configuration.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image32.png "Subnets blade")
+    ![This is a subnet configuration.](images/bhol-subnets-navigation.png "Subnets blade")
 
 7. In the **Subnets** blade, select **+Subnet**.
 
-    ![In the Subnets blade, the add Subnet button is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image29.png "Subnets blade")
+    ![In the Subnets blade, the add Subnet button is selected.](images/bhol-add-subnet-button.png "Subnets blade")
 
 8. On the **Add subnet** blade, enter the following information:
 
@@ -181,11 +181,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 9. When your dialog looks like the following screenshot, select **Save** to create the subnet.
 
-    ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required information for the DataSubnet selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image33.png "Add subnet blade")
+    ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required information for the DataSubnet selected.](images/bhol-add-subnet-blade.png"Add subnet blade")
 
 10. When the subnet has completed its configuration, your subnet deployment will look like the following screenshot.
 
-     ![In this screenshot, the Azure portal Subnets blade of the WGVNet2 virtual network is depicted with the newly created subnets listed.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image158.png "Subnets blade")  
+     ![In this screenshot, the Azure portal Subnets blade of the WGVNet2 virtual network is depicted with the newly created subnets listed.](images/bhol-subnets-table.png "Subnets table")  
 
 ### Task 4: Use the Azure portal for a template deployment
 
@@ -197,17 +197,17 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 3. Expand the left navigation and choose **+ Create a resource**, and search for and select **template deployment (deploy using custom templates)**.
 
-    ![In this screenshot, the 'Create a resource' blade is depicted with 'Template deployment (deploy using custom templates)' entered in the 'Search the Marketplace' box.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image56.png "New blade")
+    ![In this screenshot, the 'Create a resource' blade is depicted with 'Template deployment (deploy using custom templates)' entered in the 'Search the Marketplace' box.](images/bhol-create-template-deployment.png "New blade")
 
 4. On the **Template deployment (deploy using custom templates)** blade, select **Create**.
 
 5. On the Custom deployment blade, select **Build your own template in the editor**.
 
-    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the 'Build your own template in the editor' button selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image57.png "Custom deployment blade")
+    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the 'Build your own template in the editor' button selected.](images/bhol-custom-deployment.png "Custom deployment blade")
 
 6. Choose **Load file** and select the **CloudShop.json** file from your **C:\\ECN-Hackathon** directory and then select **Save**.
 
-    ![In this screenshot, the 'Edit template' blade of the Azure portal is depicted with the 'Load file' button selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image58.png "Edit template blade")
+    ![In this screenshot, the 'Edit template' blade of the Azure portal is depicted with the 'Load file' button selected.](images/bhol-load-custom-template.png "Edit template blade")
 
 7. Update the following parameters to reference the **WGVNet2** virtual network in the **WGVNetRG2** resource group and to the **AppSubnet** and **DataSubnet** subnets.
 
@@ -219,7 +219,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
   
     - Data Subnet: **DataSubnet**
 
-    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the parameters listed above selected with their proper values.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image59.png "Template parameters")
+    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the parameters listed above selected with their proper values.](images/bhol-virtual-network-resources.png "Template parameters")
 
 8. Update the **Custom deployment** blade using the following inputs, agree to the terms, and select **Review + create** then **Create**. This deployment will take approximately 30-40 minutes.
 
@@ -227,7 +227,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     - Region: This should be the same location you used to provision resources earlier in this lab.
 
-    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the parameters listed above selected with their proper values.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image60.png "Template blade")
+    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the parameters listed above selected with their proper values.](images/bhol-custom-deployment-resource-group.png "Template blade")
 
 ### Task 5: Validate the CloudShop application is up after the deployment
 
@@ -237,7 +237,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 3. On the **WGWEB1** blade, first select **Connect**, then select **RDP**, and then choose **Download RDP file** to establish a Remote Desktop session.
 
-    ![In this screenshot, the WGWEB1 virtual machine blade of the Azure portal is depicted with the Connect context menu expanded. The Connect button and the RDP option are selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image61.png "Virtual machine blade")
+    ![In this screenshot, the WGWEB1 virtual machine blade of the Azure portal is depicted with the Connect context menu expanded. The Connect button and the RDP option are selected.](images/bhol-connect-to-wgweb1.png "Virtual machine blade")
 
 4. Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
 
@@ -249,7 +249,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 6. You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Select **Yes** to continue with the connection.
 
-    ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button and 'Don't ask me again' box selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image62.png "Remote Desktop Connection warning dialog box")
+    ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button and 'Don't ask me again' box selected.](images/bhol-rdp-notice-wgweb1.png "Remote Desktop Connection warning dialog box")
 
 7. When logging on for the first time, you will have a prompt asking about network discovery. Select **No**.
 
