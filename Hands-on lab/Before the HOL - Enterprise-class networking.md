@@ -55,7 +55,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 2. Expand the portal's left navigation by clicking **Expand portal menu** on the top left. Select **+Create a resource** on the left navigation, and in the search box, type in **Visual Studio 2022**, and press enter. In the list of results, select **Visual Studio 2022**. From the drop down, select **Visual Studio 2022 Community on Windows Server 2022 (x64)**. Then select **Create**.
 
-    ![In this screenshot, the Visual Studio 2022 Azure Marketplace option is depicted with the 'Select a software plan' dropdown menu open with the required image and Create button selected.](images/Setup/SetupVS.png "Visual Studio image selection")
+    ![In this screenshot, the Visual Studio 2022 Azure Marketplace option is depicted with the 'Select a software plan' dropdown menu open with the required image and Create button selected.](images/bhol-setup-visual-studio.png "Visual Studio image selection")
 
 3. On the **Create a virtual machine** blade, on the **Basics** tab, select the following configuration and select **Next : Disks**:
 
@@ -100,7 +100,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 7. On the **LABVM** blade, first select **Connect**, then select **RDP**, and then select **Download RDP File** to establish a Remote Desktop session.
 
-    ![In this screenshot, the Azure portal page of the newly created virtual machine is depicted with the Connect menu expanded. The Connect button and RDP option are highlighted.](images/Setup/image13.png "Azure Portal VM page")
+    ![In this screenshot, the Azure portal page of the newly created virtual machine is depicted with the Connect menu expanded. The Connect button and RDP option are highlighted.](images/bhol-rdp-to-labvm-1.png "Azure Portal VM page")
 
 8. Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
 
@@ -112,7 +112,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 10. You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Choose **Yes** to continue with the connection.
 
-    ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button selected.](images/Setup/image14.png "Remote Desktop Connection warning")
+    ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button selected.](images/bhol-rdp-to-labvm-2.png "Remote Desktop Connection warning")
 
 11. Server Manager opens by default. This can be closed.
 
@@ -123,9 +123,9 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 2. Extract the downloaded ECN-Hackathon.zip file into the directory **C:\\ECN-Hackathon**.
 
-    ![In File Explorer, the Downloads folder and ECN-Hackathon.zip are selected. The context menu is showing for the ECN-Hackathon.zip file, and "Extract All..." is selected.](images/Setup/image23.png "File Explorer")
+    ![In File Explorer, the Downloads folder and ECN-Hackathon.zip are selected. The context menu is showing for the ECN-Hackathon.zip file, and "Extract All..." is selected.](images/bhol-ecn-hackathon-zip-file-explorer.png "File Explorer")
 
-    ![In the Extract Files window, Files are being extracted to C:\\ECH-Hackathon, and the Extract button is selected.](images/Setup/image24.png "Extract Files window")
+    ![In the Extract Files window, Files are being extracted to C:\\ECH-Hackathon, and the Extract button is selected.](images/bhol-extract-ecn-hackathon-zip.png "Extract Files window")
 
 ### Task 3: Create a Virtual Network (hub) with Subnets
 

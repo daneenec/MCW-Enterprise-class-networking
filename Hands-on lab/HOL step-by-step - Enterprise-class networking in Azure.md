@@ -100,7 +100,7 @@ The result of this proof of concept will be an environment resembling this diagr
 
 ## Solution architecture
 
-![This image represents an entire overview of an environment for the result of this proof of concept. On the left is the OnPremVNetRG resource group, in the middle is the WGVNetRG1 resource group, on the right is the WGVNetRG2 resource group. In the lower right is the MonitoringRG resource group.](images/image200.png "Solution Architecture")
+![This image represents an entire overview of an environment for the result of this proof of concept. On the left is the OnPremVNetRG resource group, in the middle is the WGVNetRG1 resource group, on the right is the WGVNetRG2 resource group. In the lower right is the MonitoringRG resource group.](images/hol-architecture.png "Solution Architecture")
 
 ## Requirements
 
@@ -628,7 +628,7 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
 3. Enter **LBBE** for the pool name. Under **Associated to**, select **Virtual machine**.
 
-    ![In this screenshot, the 'Add backend pool' blade is depicted with the Name and 'Associated to' fields filled in as listed above.](images/2020-01-27-18-33-43.png "Add backend pool blade")
+    ![In this screenshot, the 'Add backend pool' blade is depicted with the Name and 'Associated to' fields filled in as listed above.](images/hol-backend-pool.png "Add backend pool blade")
 
 4. Under **Virtual machine**, select **+ Add** and choose the **WGWEB1** and **WGWEB2** virtual machines and select **Add**.
 
