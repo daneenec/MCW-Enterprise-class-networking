@@ -482,7 +482,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 3. When the dialog looks like the following screenshot, select **Review + Create** then **Create**.
 
-    ![In this screenshot, the 'Create Route table' blade of the Azure portal is depicted with the required settings listed in the previous step selected.](images/image163.png "Create route table")
+    ![In this screenshot, the 'Create Route table' blade of the Azure portal is depicted with the required settings listed in the previous step selected.](images/hol-ex4-task1-create-route-table-basics.png "Create route table")
 
 4. Repeat steps 1 and 2 to create the **AppRT** route table:
 
@@ -498,13 +498,13 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 5. Once route tables are created, your **Route tables** blade should look like the following screenshot:
 
-    ![In this screenshot, the 'Route tables' blade of the Azure portal is depicted with the two route tables created in this task listed.](images/image38.png "Route table link")
+    ![In this screenshot, the 'Route tables' blade of the Azure portal is depicted with the two route tables created in this task listed.](images/hol-ex4-task1-route-tables-blade.png "Route table link")
 
 ### Task 2: Add routes to each route table
 
 1. Select the **AppRT** route table, and select **Routes** under **Settings** on the left.
 
-    ![In this screenshot, the AppRT route table blade in the Azure portal is depicted with Routes selected under Settings on the left.](images/image39.png "Route table blade ")
+    ![In this screenshot, the AppRT route table blade in the Azure portal is depicted with Routes selected under Settings on the left.](images/hol-ex4-task2-routes-navigation.png "Route table blade ")
 
 2. On the **Routes** blade, select **+ Add**. Enter the following information, and select **OK**:
 
@@ -516,7 +516,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Next hop address: **10.7.1.4**
 
-    ![In this screenshot, the 'Add route' blade of the AppRT route table in the Azure portal is depicted with the required settings listed above selected.](images/image40.png "Add route configuration")
+    ![In this screenshot, the 'Add route' blade of the AppRT route table in the Azure portal is depicted with the required settings listed above selected.](images/hol-ex4-task2-add-route-blade-app-to-internet.png "Add route configuration")
 
 3. Repeat this procedure to add the **AppToMgmt** route using the following information:
 
@@ -528,17 +528,17 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Next hop address: **10.7.1.4**
 
-    ![In this screenshot, the 'Add route' blade of the AppRT route table in the Azure portal is depicted with the required settings listed above selected.](images/image41.png "Edit route")
+    ![In this screenshot, the 'Add route' blade of the AppRT route table in the Azure portal is depicted with the required settings listed above selected.](images/hol-ex4-task2-add-route-blade-app-to-mgmt.png "Edit route")
 
 4. Upon completion, your routes in the **AppRT** route table should look like the following screenshot:
 
-    ![In this screenshot, the Routes blade of the AppRT route table is depicted with the two newly creates routes listed.](images/image43.png "Route table ")
+    ![In this screenshot, the Routes blade of the AppRT route table is depicted with the two newly creates routes listed.](images/hol-ex4-task2-apprt-route-table.png "Route table ")
 
 5. In the Azure Portal, go to All Services and type Route in the search box and select **Route tables**.
 
 6. Select **MgmtRT**, and select **Routes** under **Settings** on the left.
 
-    ![In this screenshot, the 'Route tables' blade of the Azure portal is depicted with the MgmtRT route table selected.](images/image50.png "MgmtRT")
+    ![In this screenshot, the 'Route tables' blade of the Azure portal is depicted with the MgmtRT route table selected.](images/hol-ex4-task2-mgmtrt-in-route-tables.png "MgmtRT")
 
 7. On the **Routes** blade, select **+Add**. Enter the following information, and select **OK**:
 
@@ -550,7 +550,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Next hop address: **Leave blank**.
 
-    ![In this screenshot, the 'Add route' blade of the MgmtRT route table in the Azure portal is depicted with the required settings listed above selected.](images/image51.png "Add route")
+    ![In this screenshot, the 'Add route' blade of the MgmtRT route table in the Azure portal is depicted with the required settings listed above selected.](images/hol-ex4-task2-add-route-blade-mgmt-to-onpremises.png "Add route")
 
 8. Add the **MgmtToApp** route using the following information:
 
@@ -562,11 +562,11 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Next hop address: **10.7.1.4** (This is the private IP of Azure Firewall.)
 
-    ![In this screenshot, the 'Add route' blade of the MgmtRT route table in the Azure portal is depicted with the required settings listed above selected.](images/image164.png "Add route")
+    ![In this screenshot, the 'Add route' blade of the MgmtRT route table in the Azure portal is depicted with the required settings listed above selected.](images/hol-ex4-task2-add-route-blade-mgmt-to-app.png "Add route")
 
 9. Upon completion, your routes in the **MgmtRT** route table should look like the following screenshot:
 
-    ![In this screenshot, the Routes blade of the MgmtRT route table is depicted with the two newly creates routes listed.](images/image165.png "Route table")
+    ![In this screenshot, the Routes blade of the MgmtRT route table is depicted with the two newly creates routes listed.](images/hol-ex4-task2-mgmtrt-route-table.png "Route table")
 
     >**Note:** The route tables and routes you have just created are not associated with any subnets yet, so they are not impacting any traffic flow yet. This will be accomplished later in the lab.
 
