@@ -155,6 +155,8 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
        - Subnet address range: **10.8.0.0/25**
 
+       - NAT Gateway: **None**
+
 5. Once complete, click **Review + Create** then once the validation passes, click **Create**.
 
 6. Go to the WGVNetRG2 Resource Group, select the **WGVNet2** blade, and select **Subnets** under **Settings** on the left.
@@ -181,7 +183,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required information for the DataSubnet selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image33.png "Add subnet blade")
 
-10. When the subnet has completed its configuration your subnet deployment will look like the following screenshot.
+10. When the subnet has completed its configuration, your subnet deployment will look like the following screenshot.
 
      ![In this screenshot, the Azure portal Subnets blade of the WGVNet2 virtual network is depicted with the newly created subnets listed.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image158.png "Subnets blade")  
 
@@ -223,7 +225,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     - Resource Group: Select **WGVNetRG2** you created earlier.
 
-    - Location: **(US) South Central US** (The same location you used to provision resources earlier in this lab.)
+    - Region: This should be the same location you used to provision resources earlier in this lab.
 
     ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the parameters listed above selected with their proper values.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image60.png "Template blade")
 
@@ -249,9 +251,13 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button and 'Don't ask me again' box selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image62.png "Remote Desktop Connection warning dialog box")
 
-7. Notice that Server Manager opens by default. Close Server Manager.
+7. When logging on for the first time, you will have a prompt asking about network discovery. Select **No**.
 
-8. You will now ensure the CloudShop application is up and running. Open Microsoft Edge from the Start menu, and browse to both CloudShop sites running on the WGWEB1 and WGWEB2 servers using the URLs below. The output will look like the following image.
+    ![Screenshot of the network discovery dialog asking whether to find PCs, devices, and content on this network. 'No' is highlighted.](images/bhol-network-discovery.png)
+
+8. Notice that Server Manager opens by default. Close Server Manager.
+
+9. You will now ensure the CloudShop application is up and running. Open Microsoft Edge from the Start menu. Browse to both CloudShop sites running on the WGWEB1 and WGWEB2 servers using the URLs below. The output will look like the following image.
 
     - WGWEB1 CloudShop site: <http://wgweb1>
     - WGWEB2 CloudShop site: <http://wgweb2>
