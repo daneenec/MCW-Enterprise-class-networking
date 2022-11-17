@@ -1114,13 +1114,13 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     - Propagate gateway routes: **Yes**
 
-    ![In this screenshot, the 'Create route table' blade of the Azure portal is depicted with the required settings listed above selected.](images/image180.png "Create route table")
+    ![In this screenshot, the 'Create route table' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex9-task2-create-route-table-wgazurevnetgwrt.png "Create route table")
 
 4. Select **Review + create** then **Create**.
 
 5. Select the **WGAzureVNetGWRT** route table.
 
-    ![In this screenshot, the 'Route tables' blade of the Azure portal is depicted with the 'WGAzureVNetGWRT' route table selected and it's blade open to it's Routes page.](images/image181.png "Route tables")
+    ![In this screenshot, the 'Route tables' blade of the Azure portal is depicted with the 'WGAzureVNetGWRT' route table selected and it's blade open to it's Routes page.](images/hol-ex9-task2-route-tables-wgazurevnetgwrt-routes-navigation.png "Route tables")
 
 6. Select **Routes** under **Settings** on the left.
 
@@ -1134,7 +1134,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     - Next hop address: **10.7.1.4**
 
-    ![In this screenshot, the 'Add route' blade of the 'WGAzureVNetGWRT' route table is depicted with the required settings listed above selected along with the OK button.](images/image182.png "Add route")
+    ![In this screenshot, the 'Add route' blade of the 'WGAzureVNetGWRT' route table is depicted with the required settings listed above selected along with the OK button.](images/hol-ex9-task2-onpremtoappsubnet-to-virtual-appliance.png "Add route")
 
 8. On the **WGAzureVNetGWRT - Routes** blade, select **Subnets** under **Settings** on the left.
 
@@ -1142,7 +1142,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 10. On the **Associate subnet** blade, select **WGVNet1** under the **Virtual Network** drop down and select **GatewaySubnet** under the **Subnet** drop down.
 
-    ![In this screenshot, the 'Associate subnet' blade of the 'WGAzureVNetGWRT' route table is depicted with the required WGVNet1 virtual network and GatewaySubnet subnet selected along with the OK button.](images/image148.png "Associate subnet")
+    ![In this screenshot, the 'Associate subnet' blade of the 'WGAzureVNetGWRT' route table is depicted with the required WGVNet1 virtual network and GatewaySubnet subnet selected along with the OK button.](images/hol-ex9-task2-associate-gatewaysubnet.png "Associate subnet")
 
     >**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
 
