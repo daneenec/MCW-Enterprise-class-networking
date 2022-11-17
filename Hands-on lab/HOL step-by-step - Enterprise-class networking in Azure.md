@@ -850,7 +850,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 4. Upon completion, it should look like the following screenshot. Validate the information is correct, and select **Next: IP Addresses**.
 
-    ![In this screenshot, the Basics tab of the 'Create virtual network' blade in the Azure portal is depicted with the required settings selected.](images/image121.png "Create virtual network")
+    ![In this screenshot, the Basics tab of the 'Create virtual network' blade in the Azure portal is depicted with the required settings selected.](images/hol-ex7-task1-create-virtual-network-onpremvnet.png "Create virtual network")
 
 5. On the **IP addresses** tab of the **Create virtual network blade**, enter the following information.
 
@@ -870,7 +870,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 2. Next, select **+ Gateway subnet**.
 
-    ![In this screenshot, the 'OnPremVNet - Subnets' blade is depicted with the Subnets selected on the left and the '+ Gateway subnet' selected.](images/image122.png "Virtual network blade")
+    ![In this screenshot, the 'OnPremVNet - Subnets' blade is depicted with the Subnets selected on the left and the '+ Gateway subnet' selected.](images/hol-ex7-task2-onpremvnet-add-gateway-subnet.png "Virtual network blade")
 
 3. Specify the following configuration for the subnet, and select **Save**:
 
@@ -878,7 +878,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Route table: **None** (We will add this later.)
 
-    ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required settings listed above selected along with the Save button.](images/image123.png "Add subnet")
+    ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required settings listed above selected along with the Save button.](images/hol-ex7-task2-add-gateway-subnet.png "Add subnet")
 
 4. Next, select **+ Subnet** and add the **OnPremManagementSubnet** subnet to the **OnPremVNet**, as shown below in the screenshot:
 
@@ -888,7 +888,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Leave the rest of the values as their defaults.
 
-    ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required settings listed above selected along with the Save button.](images/image124.png "Add subnet")
+    ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required settings listed above selected along with the Save button.](images/hol-ex7-task2-add-onprem-mgmt-subnet.png "Add subnet")
 
 ### Task 3: Create the first gateway
 
@@ -920,7 +920,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Configure BGP: **Disabled**
 
-    ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the above required settings selected.](images/image176.png "Create virtual network gateway")
+    ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the above required settings selected.](images/hol-ex7-task3-create-onpremwggateway.png "Create virtual network gateway")
 
 3. Validate your settings and select **Review + Create** then **Create**.
 
@@ -958,7 +958,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Configure BGP: **Disabled**
 
-    ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the above required settings selected.](images/image177.png "Create virtual network gateway")
+    ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the above required settings selected.](images/hol-ex7-task4-create-wgvnet1gateway.png "Create virtual network gateway")
 
 3. Validate your settings and select **Review + Create** then **Create**.
 
@@ -978,21 +978,21 @@ In this exercise, we will simulate an on-premises connection to the internal web
     - Second connection name - **WGGateway-to-WGVNet1**
     - Region - **South Central US**
 
-    ![In this screenshot, the Basics step of the 'Create connection' blade of the Azure portal is depicted with the required settings listed above selected.](images/image134.png "Basics")
+    ![In this screenshot, the Basics step of the 'Create connection' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex7-task5-create-connection-vnet-to-vnet.png "Basics")
 
-4. On the Settings step, select **WGVNet1Gateway** as the first virtual network gateway and **OnPremWGGateway** as the second virtual network gateway. Ensure **Establish bidirectional connectivity** and **IKEV2** is selected. Enter a shared key, such as **A1B2C3D4**. Select **Review + create**.
+4. On the Settings step, select **WGVNet1Gateway** as the first virtual network gateway and **OnPremWGGateway** as the second virtual network gateway. Ensure **Establish bidirectional connectivity** and **IKEv2** is selected. Enter a shared key, such as **A1B2C3D4**. Select **Review + create**.
 
-    ![In this screenshot, the Settings step of the 'Create connection' blade of the Azure portal is depicted with the required settings listed above selected including the two virtual network gateway resources created earlier.](images/image178.png "select virtual network gateway")
+    ![In this screenshot, the Settings step of the 'Create connection' blade of the Azure portal is depicted with the required settings listed above selected including the two virtual network gateway resources created earlier.](images/hol-ex7-task5-create-connection-vnet-to-vnet-settings.png "select virtual network gateway")
 
 5. Select **Create** on the **Summary** page to create the connection.
 
 6. In the Azure portal, select **All services** on the left navigation. Then, type **connections** in the search text box and select **Connections**.
 
-    ![In this screenshot, the 'All services' of the Azure portal is depicted with Connections searched for and selected.](images/image138.png "Azure Portal")
+    ![In this screenshot, the 'All services' of the Azure portal is depicted with Connections searched for and selected.](images/hol-ex7-task5-search-for-connections.png "Azure Portal")
 
 7. Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
 
-    ![In this screenshot, the Connections blade of the Azure portal is depicted with the two connections created earlier listed with their respective statuses showing as Connected.](images/image139.png "Connections blade")
+    ![In this screenshot, the Connections blade of the Azure portal is depicted with the two connections created earlier listed with their respective statuses showing as Connected.](images/hol-ex7-task5-connections-blade.png "Connections blade")
 
 ## Exercise 8: Build the Bastion host service
 
