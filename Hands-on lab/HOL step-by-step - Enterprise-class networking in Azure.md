@@ -1216,7 +1216,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Replication: **Locally-redundant storage (LRS)**
 
-    ![In this screenshot, the 'Create storage account' blade is depicted with the above required settings selected along with the 'Review + create' button.](images/image186.png "Add storage account")
+    ![In this screenshot, the 'Create storage account' blade is depicted with the above required settings selected along with the 'Review + create' button.](images/hol-ex11-task1-create-storage-account-monitoring.png "Add storage account")
 
    >**Note:** Ensure the storage account is created before continuing.
 
@@ -1226,7 +1226,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 5. From the **Network Watcher** blade under the **Logs** menu on the left, select **NSG flow logs**. Select **+ Create**.
 
-    ![In this screenshot, the 'NSG Flow logs blade is depicted with the '+ Create' button selected.](images/image185.png "Network Security Groups in Flow Log")
+    ![In this screenshot, the 'NSG Flow logs blade is depicted with the '+ Create' button selected.](images/hol-ex11-task1-nsg-flow-logs-create-button.png "Network Security Groups in Flow Log")
 
 6. In the **Create a flow log** blade that appears, enter the following information then select **Next: Configuration**.
 
@@ -1238,7 +1238,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Retention (days): **0**
 
-    ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/CreateFL.png "Create a flow log Basics")
+    ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/hol-ex11-task1-create-flowlog-wgappnsg1.png "Create a flow log Basics")
 
 7. On the **Configuration** tab of the **Create a flow log** blade, enter the following information then select **Review + create** then **Create**.
 
@@ -1252,7 +1252,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 8. Repeat Steps 5 - 7 to create a flow log for the **OnPremVM-nsg** Network Security Group as well. When completed your **NSG flow logs** blade on **Network Watcher** should look like what's depicted in the below image.
 
-     ![In this screenshot, the 'Network Watcher - NSG flow logs' blade is depicted with the two flow logs created earlier listed.](images/image189.png "Network Watcher Flow Log")
+     ![In this screenshot, the 'Network Watcher - NSG flow logs' blade is depicted with the two flow logs created earlier listed.](images/hol-ex11-task1-nsg-flow-logs-blade.png "Network Watcher Flow Log")
 
 9. Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file.
 
@@ -1275,7 +1275,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 12. In the RDP session for the **OnPremVM**, navigate to the **Azure** portal, navigate to **Virtual machines** and select the **WGWEB1**. Connect to **WGWEB1** through **Bastion**.  In **WGWEB1**,  navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.
 
-     ![In this screenshot, the RDP connections to OnPremVM and WGWEB1 are depicted with the load balancer connection open.](images/image190.png "CloudShop Application")
+     ![In this screenshot, the RDP connections to OnPremVM and WGWEB1 are depicted with the load balancer connection open.](images/hol-ex11-task1-web-traffic-over-load-balancer.png "CloudShop Application")
 
 ### Task 2: Configuring Diagnostic Logs
 
@@ -1289,15 +1289,15 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 4. Enter **OnPremDiag** as the name then select the checkbox for **Archive to a storage account**. On the **Storage accounts** drop down, select the available storage account you created earlier.
 
-     ![In this screenshot, the 'Diagnostic setting' blade of the Azure portal is depicted with the required settings listed above selected.](images/image193.png "Network Watcher Diagnostic Resources")
+     ![In this screenshot, the 'Diagnostic setting' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex11-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic Resources")
 
 5. Select the **Send to Log Analytics workspace** checkbox. Select the workspace created earlier in the dropdown. Select the **AllMetrics** checkbox and set the **Retention (days)** to **60**. Select the **Save** button to complete the settings.
 
-     ![In this screenshot, the 'Diagnostic setting' blade of the Azure portal is depicted with the required settings listed above selected.](images/image194.png "Diagnostic Settings")
+     ![In this screenshot, the 'Diagnostic setting' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex11-task2-diagnostic-setting-blade.png "Diagnostic Settings")
 
 6. Repeat Steps 2 - 5 for each network resource. Once completed your settings will look like the following screenshot.
 
-     ![In this screenshot, the 'Network Watcher - Diagnostic logs' blade is depicted with all the network resources having a 'Diagnostic status' of 'Enabled'.](images/image195.png "Diagnostic Settings")
+     ![In this screenshot, the 'Network Watcher - Diagnostic logs' blade is depicted with all the network resources having a 'Diagnostic status' of 'Enabled'.](images/hol-ex11-task2-diagnostic-logs.png "Diagnostic Settings")
 
 ### Task 3: Reviewing Network Traffic
 
@@ -1305,11 +1305,11 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 2. Select **Traffic Analytics** from the **Logs** menu in the blade. At this time, the diagnostic logs from the network resources have been ingested. Select **View map**.
 
-     ![In this screenshot, the 'Network Watcher - Traffic Analytics' blade is depicted is depicted with the 'View map' button selected.](images/image196.png "Your Network Environment")
+     ![In this screenshot, the 'Network Watcher - Traffic Analytics' blade is depicted is depicted with the 'View map' button selected.](images/hol-ex11-task3-network-watcher-traffic-analytics.png "Your Network Environment")
 
 3. Select the **green check mark** which identifies your network. Within the pop-up menu select **More Details** to propagate detailed information of the flow to and from your network.
 
-     ![In this screenshot, the Traffic Analytics Geo Map View is depicted with a green check mark on the region where your network resides and monitor metrics displayed next to it.](images/image197.png "Your Network Environment")
+     ![In this screenshot, the Traffic Analytics Geo Map View is depicted with a green check mark on the region where your network resides and monitor metrics displayed next to it.](images/hol-ex11-task3-network-watcher-traffic-analytics-map.png "Your Network Environment")
 
 >**Note:** You can select the **See More** link to query the connections detail for more information.
 
@@ -1339,11 +1339,11 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Destination Port: **80**
 
-     ![In this screenshot, the 'Network Watcher - Connection troubleshoot' blade is depicted with the required settings listed above selected.](images/image198.png "Connection Troubleshoot")
+     ![In this screenshot, the 'Network Watcher - Connection troubleshoot' blade is depicted with the required settings listed above selected.](images/hol-ex11-task4-network-watcher-connection-troubleshoot-settings.png "Connection Troubleshoot")
 
 4. Once the check is complete the connection troubleshoot feature will display a grid view on the name, IP Address Status and Next hop as seen in the following screenshot.
 
-     ![In this screenshot, the results of the connection troubleshoot operation performed in the previous step is depicted with a grid view showing the name, IP Address Status, and Next hop IP address.](images/image199.png "Connection Troubleshoot")
+     ![In this screenshot, the results of the connection troubleshoot operation performed in the previous step is depicted with a grid view showing the name, IP Address Status, and Next hop IP address.](images/hol-ex11-task4-network-watcher-connection-troubleshoot.png "Connection Troubleshoot")
 
 ## After the hands-on lab
 
