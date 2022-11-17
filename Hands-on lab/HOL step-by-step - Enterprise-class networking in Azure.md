@@ -1176,19 +1176,19 @@ Duration: 15 minutes
 
 3. Upon completion, it should look like the following screenshot. Validate the information is correct, and select **Review + create** then **Create**.
 
-    ![In this screenshot, the 'Create Log Analytics workspace' blade is depicted with the required settings listed in the previous step selected.](images/image160.png "Create Log Analytics Workspace")
+    ![In this screenshot, the 'Create Log Analytics workspace' blade is depicted with the required settings listed in the previous step selected.](images/hol-ex10-task1-create-log-analytics-workspace.png "Create Log Analytics Workspace")
 
 ### Task 2: Configure Network Watcher
 
 1. From your **LABVM**, connect to the Azure portal, select **All Services** on the left navigation, and in the Category list, select **Networking** followed by selecting **Network Watcher**.
 
-    ![In this screenshot, the 'All services' blade of the Azure portal is depicted with the Networking category selected on the left and 'Network watcher' selected on the list.](images/image161.png "All Services blade")
+    ![In this screenshot, the 'All services' blade of the Azure portal is depicted with the Networking category selected on the left and 'Network watcher' selected on the list.](images/hol-ex10-task2-services-network-watcher.png "All Services blade")
 
 2. In the **Overview** blade, ensure that **NetworkWatcher_southcentralus** and **NetworkWatcher_eastus** is listed.
 
 3. If they are not listed, add them to the list using the **+ Add** button.
 
-   ![In this screenshot, the 'Overview' blade of the 'Network Watcher' service is depicted with the available regions listed and the '+ Add' button selected.](images/image162.png "Network Watcher Overview blade")
+   ![In this screenshot, the 'Overview' blade of the 'Network Watcher' service is depicted with the available regions listed and the '+ Add' button selected.](images/hol-ex10-task2-network-watcher.png "Network Watcher Overview blade")
 
 ## Exercise 11: Using Network Watcher to Test and Validate Connectivity
 
