@@ -138,7 +138,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     - Name: **WGVNet2**
 
-    - Region: **(US) South Central US**
+    - Region: **South Central US**
 
 3. Upon completion, it should look like the following screenshot. Validate the information is correct, and choose **Next: IP Addresses**.
 
