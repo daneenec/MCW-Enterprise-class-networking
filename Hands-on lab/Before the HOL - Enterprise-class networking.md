@@ -53,15 +53,15 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 1. Launch a browser, and navigate to <https://portal.azure.com>. Once prompted, login with your Microsoft Azure credentials. If asked, choose whether your account is an organization account or just a Microsoft Account.
 
-2. Expand the portal's left navigation by clicking **Expand portal menu** on the top left. Select **+Create a resource** on the left navigation, and in the search box, type in **Visual Studio 2022**, and press enter. In the list of results, select **Visual Studio 2022**. From the drop down, select **Visual Studio 2022 Community on Windows Server 2022 (x64)**. Then select **Create**.
+2. Expand the portal's left navigation by clicking **Expand portal menu** on the top left. Select **+ Create a resource** on the left navigation. In the search box, type in **Visual Studio 2022**, and press Enter. In the list of results, select **Visual Studio 2022**. From the drop down, select **Visual Studio 2022 Community on Windows Server 2022 (x64)**. Finally, select **Create**.
 
-    ![In this screenshot, the Visual Studio 2022 Azure Marketplace option is depicted with the 'Select a software plan' dropdown menu open with the required image and Create button selected.](images/bhol-task1-setup-visual-studio.png "Visual Studio image selection")
+    ![In this screenshot, the Visual Studio 2022 Azure Marketplace option is depicted with the Plan dropdown menu open with the required plan and Create button highlighted.](images/bhol-task1-setup-visual-studio.png "Visual Studio 2022 plan selection")
 
 3. On the **Create a virtual machine** blade, on the **Basics** tab, select the following configuration and select **Next : Disks**:
 
     - Subscription: **If you have multiple subscriptions, choose the subscription to execute your labs in**.
 
-    - Resource Group: (Create new) **OPSLABRG**
+    - Resource Group: (Create new) **MCWLABRG**
 
     - Virtual machine name: **LABVM**
 
@@ -100,7 +100,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 7. On the **LABVM** blade, first select **Connect**, then select **RDP**, and then select **Download RDP File** to establish a Remote Desktop session.
 
-    ![In this screenshot, the Azure portal page of the newly created virtual machine is depicted with the Connect menu expanded. The Connect button and RDP option are highlighted.](images/bhol-task1-rdp-to-labvm-1.png "Azure Portal VM page")
+    ![In this screenshot, the virtual machine blade for the created VM is depicted with the Connect menu expanded. The Connect button and RDP option are highlighted.](images/bhol-task1-rdp-to-labvm-1.png "Azure Portal LABVM virtual machine page")
 
 8. Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
 
@@ -112,24 +112,23 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 10. You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Choose **Yes** to continue with the connection.
 
-    ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button selected.](images/bhol-task1-rdp-to-labvm-2.png "Remote Desktop Connection warning")
+    ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button highlighted.](images/bhol-task1-rdp-to-labvm-2.png "Remote Desktop Connection warning")
 
-11. Server Manager opens by default. This can be closed.
+11. Server Manager opens by default. Close Server Manager.
 
 ### Task 2: Download hands-on lab step-by-step support files
 
-1. Within the Remote Desktop session to **LABVM**, open Microsoft Edge (pinned in the taskbar) and download the zipped hands-on lab step-by-step student files by navigating to this link:
-    <https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab/labfiles/ECN-Hackathon.zip>.
+1. Within the Remote Desktop session to **LABVM**, open Microsoft Edge (pinned in the taskbar) and download the zipped hands-on lab step-by-step student files by navigating to the following link: <https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab/labfiles/ECN-Hackathon.zip>
 
 2. Extract the downloaded ECN-Hackathon.zip file into the directory **C:\\ECN-Hackathon**.
 
-    ![In File Explorer, the Downloads folder and ECN-Hackathon.zip are selected. The context menu is showing for the ECN-Hackathon.zip file, and "Extract All..." is selected.](images/bhol-task2-ecn-hackathon-zip-file-explorer.png "File Explorer")
+    ![In File Explorer, the Downloads folder and ECN-Hackathon.zip are highlighted. The context menu is showing for the ECN-Hackathon.zip file, and 'Extract All...' is highlighted.](images/bhol-task2-ecn-hackathon-zip-file-explorer.png "File Explorer showing the ECN-Hackathon.zip file in the Downloads folder")
 
-    ![In the Extract Files window, Files are being extracted to C:\\ECH-Hackathon, and the Extract button is selected.](images/bhol-task2-extract-ecn-hackathon-zip.png "Extract Files window")
+    ![In the Extract Compressed (Zipped) Folders dialog, files are being extracted to C:\\ECH-Hackathon, and the Extract button is highlighted.](images/bhol-task2-extract-ecn-hackathon-zip.png "Extract Compressed (Zipped) Folders dialog")
 
 ### Task 3: Create a Virtual Network (hub) with Subnets
 
-1. From your **LABVM**, connect to the Azure portal, expand the left navigation select **+ Create a resource**, then in the **Search the Marketplace** box, search for and select **Virtual Network** then select **Create**.
+1. From within your **LABVM**, connect to the Azure portal. Expand the left navigation, and select **+ Create a resource**. In the **Search the Marketplace** box, search for and select **Virtual Network**, then select **Create**.
 
 2. On the **Basics** tab of the **Create virtual network** blade, enter the following information:
 
@@ -143,9 +142,9 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 3. Upon completion, it should look like the following screenshot. Validate the information is correct, and choose **Next: IP Addresses**.
 
-    ![In this screenshot, the Basics tab of the 'Create virtual machine' blade of the Azure portal is depicted with the required settings selected and the 'Next: IP Addresses' button selected.](images/bhol-task3-create-virtual-network.png "Create virtual network basics")
+    ![In this screenshot, the Basics tab of the 'Create virtual network' blade of the Azure portal is depicted with the required fields - Subscription, Resource group, Name, and Region - and the 'Next: IP Addresses' button highlighted.](images/bhol-task3-create-virtual-network.png "Create virtual network blade's Basics tab")
 
-4. On the **IP Addresses** tab of the **Create virtual network** blade. enter the following information:
+4. On the **IP Addresses** tab of the **Create virtual network** blade, enter the following information:
 
     - IPv4 address space: **10.8.0.0/20**
 
@@ -161,11 +160,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 6. Go to the WGVNetRG2 Resource Group, select the **WGVNet2** blade, and select **Subnets** under **Settings** on the left.
 
-    ![This is a subnet configuration.](images/bhol-task3-subnets-navigation.png "Subnets blade")
+    ![In this screenshot, the Azure portal navigation for the WGVNet2 virtual network is shown. The Subnets option under the Settings section is highlighted](images/bhol-task3-subnets-navigation.png "WGVNet2 Subnets blade")
 
 7. In the **Subnets** blade, select **+Subnet**.
 
-    ![In the Subnets blade, the add Subnet button is selected.](images/bhol-task3-add-subnet-button.png "Subnets blade")
+    ![In this screenshot, the Subnets blade is shown with the AppSubnet created earlier listed below. The '+ Subnet' button is highlighted.](images/bhol-task3-add-subnet-button.png "Subnets blade")
 
 8. On the **Add subnet** blade, enter the following information:
 
@@ -181,11 +180,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 9. When your dialog looks like the following screenshot, select **Save** to create the subnet.
 
-    ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required information for the DataSubnet selected.](images/bhol-task3-add-subnet-blade.png"Add subnet blade")
+    ![In this screenshot, the 'Add subnet' blade for WVGNet2 is depicted with the required information for the DataSubnet highlighted.](images/bhol-task3-add-subnet-blade.png "Add subnet blade")
 
 10. When the subnet has completed its configuration, your subnet deployment will look like the following screenshot.
 
-     ![In this screenshot, the Azure portal Subnets blade of the WGVNet2 virtual network is depicted with the newly created subnets listed.](images/bhol-task3-subnets-table.png "Subnets table")  
+     ![In this screenshot, the Azure portal Subnets blade of the WGVNet2 virtual network is depicted with the newly created subnets listed.](images/bhol-task3-subnets-table.png "WGVNet2 virtual network's subnets table")  
 
 ### Task 4: Use the Azure portal for a template deployment
 
@@ -195,19 +194,19 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 2. Make sure you are signed into the Azure portal at <http://portal.azure.com>.
 
-3. Expand the left navigation and choose **+ Create a resource**, and search for and select **template deployment (deploy using custom templates)**.
+3. Expand the left navigation and choose **+ Create a resource**. Search for and select **template deployment (deploy using custom templates)**.
 
-    ![In this screenshot, the 'Create a resource' blade is depicted with 'Template deployment (deploy using custom templates)' entered in the 'Search the Marketplace' box.](images/bhol-task4-create-template-deployment.png "New blade")
+    ![In this screenshot, the 'Create a resource' blade is depicted with 'Template deployment (deploy using custom templates)' entered in the 'Search the Marketplace' box.](images/bhol-task4-create-template-deployment.png "Create a resource blade")
 
 4. On the **Template deployment (deploy using custom templates)** blade, select **Create**.
 
 5. On the Custom deployment blade, select **Build your own template in the editor**.
 
-    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the 'Build your own template in the editor' button selected.](images/bhol-task4-custom-deployment.png "Custom deployment blade")
+    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the 'Build your own template in the editor' link highlighted.](images/bhol-task4-custom-deployment.png "Custom deployment blade")
 
 6. Choose **Load file** and select the **CloudShop.json** file from your **C:\\ECN-Hackathon** directory and then select **Save**.
 
-    ![In this screenshot, the 'Edit template' blade of the Azure portal is depicted with the 'Load file' button selected.](images/bhol-task4-load-custom-template.png "Edit template blade")
+    ![In this screenshot, the 'Edit template' blade of the Azure portal is depicted with the 'Load file' button and 'Save' button highlighted.](images/bhol-task4-load-custom-template.png "Edit template blade")
 
 7. Update the following parameters to reference the **WGVNet2** virtual network in the **WGVNetRG2** resource group and to the **AppSubnet** and **DataSubnet** subnets.
 
@@ -221,7 +220,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the parameters listed above selected with their proper values.](images/bhol-task4-virtual-network-resources.png "Template parameters")
 
-8. Update the **Custom deployment** blade using the following inputs, agree to the terms, and select **Review + create** then **Create**. This deployment will take approximately 30-40 minutes.
+8. Update the **Custom deployment** blade using the following inputs, agree to the terms, and select **Review + create**. Review the configuration, and then select **Create**. This deployment will take approximately 30-40 minutes.
 
     - Resource Group: Select **WGVNetRG2** you created earlier.
 
@@ -231,13 +230,13 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 ### Task 5: Validate the CloudShop application is up after the deployment
 
-1. Using the Azure portal, open the **WGVNetRG2** Resource group and review the deployment.
+1. Using the Azure portal, open the **WGVNetRG2** resource group and review the deployment.
 
 2. Navigate to the **WGWEB1** blade.
 
-3. On the **WGWEB1** blade, first select **Connect**, then select **RDP**, and then choose **Download RDP file** to establish a Remote Desktop session.
+3. On the **WGWEB1** blade, first select **Connect**, then select **RDP**. When prompted, choose **Download RDP file** to download the RDP file to connect to WGWEB1.
 
-    ![In this screenshot, the WGWEB1 virtual machine blade of the Azure portal is depicted with the Connect context menu expanded. The Connect button and the RDP option are selected.](images/bhol-task5-connect-to-wgweb1.png "Virtual machine blade")
+    ![In this screenshot, the WGWEB1 virtual machine blade of the Azure portal is depicted with the Connect context menu expanded. The Connect button and the RDP option are highlighted.](images/bhol-task5-connect-to-wgweb1.png "Virtual machine blade")
 
 4. Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
 
@@ -249,7 +248,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 6. You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Select **Yes** to continue with the connection.
 
-    ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button and 'Don't ask me again' box selected.](images/bhol-task5-rdp-notice-wgweb1.png "Remote Desktop Connection warning dialog box")
+    ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button and 'Don't ask me again' box highlighted.](images/bhol-task5-rdp-notice-wgweb1.png "Remote Desktop Connection warning dialog box")
 
 7. When logging on for the first time, you will have a prompt asking about network discovery. Select **No**.
 
