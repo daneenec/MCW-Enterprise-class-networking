@@ -128,7 +128,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 ### Task 3: Create a Virtual Network (hub) with Subnets
 
-1. From within your **LABVM**, connect to the Azure portal. Expand the left navigation, and select **+ Create a resource**. In the **Search the Marketplace** box, search for and select **Virtual Network**, then select **Create**.
+1. Connect to the Azure portal. Expand the left navigation, and select **+ Create a resource**. In the **Search the Marketplace** box, search for and select **Virtual Network**, then select **Create**.
 
 2. On the **Basics** tab of the **Create virtual network** blade, enter the following information:
 
@@ -138,7 +138,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     - Name: **WGVNet2**
 
-    - Region: **South Central US**
+    - Region: **(US) South Central US**
 
 3. Upon completion, it should look like the following screenshot. Validate the information is correct, and choose **Next: IP Addresses**.
 
