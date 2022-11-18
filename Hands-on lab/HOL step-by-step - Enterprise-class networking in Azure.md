@@ -494,7 +494,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 3. When the dialog looks like the following screenshot, select **Review + Create** then **Create**.
 
-    ![In this screenshot, the 'Create Route table' blade of the Azure portal is depicted with the required settings listed in the previous step selected.](images/hol-ex4-task1-create-route-table-basics.png "Create route table")
+    ![In this screenshot, the 'Create Route table' blade of the Azure portal is depicted with the required settings listed in the previous step highlighted.](images/hol-ex4-task1-create-route-table-basics.png "Create route table")
 
 4. Repeat steps 1 and 2 to create the **AppRT** route table:
 
@@ -516,11 +516,13 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 1. Select the **AppRT** route table, and select **Routes** under **Settings** on the left.
 
-    ![In this screenshot, the AppRT route table blade in the Azure portal is depicted with Routes selected under Settings on the left.](images/hol-ex4-task2-routes-navigation.png "Route table blade ")
+    ![In this screenshot, the AppRT route table blade in the Azure portal is depicted with Routes in the Settings section of the navigation on the left highlighted.](images/hol-ex4-task2-routes-navigation.png "Route table blade ")
 
-2. On the **Routes** blade, select **+ Add**. Enter the following information, and select **OK**:
+2. On the **Routes** blade, select **+ Add**. Enter the following information, and select **Add**:
 
     - Route name: **AppToInternet**
+
+    - Address prefix destination: **IP Addresses**
 
     - Address prefix: **0.0.0.0/0**
 
@@ -528,11 +530,13 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Next hop address: **10.7.1.4**
 
-    ![In this screenshot, the 'Add route' blade of the AppRT route table in the Azure portal is depicted with the required settings listed above selected.](images/hol-ex4-task2-add-route-blade-app-to-internet.png "Add route configuration")
+    ![In this screenshot, the 'Add route' blade of the AppRT route table in the Azure portal is depicted with the required settings listed above highlighted.](images/hol-ex4-task2-add-route-blade-app-to-internet.png "Add route configuration")
 
 3. Repeat this procedure to add the **AppToMgmt** route using the following information:
 
     - Route name: **AppToMgmt**
+
+    - Address prefix destination: **IP Addresses**
 
     - Address prefix: **10.7.0.8/29**
 
@@ -540,21 +544,23 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Next hop address: **10.7.1.4**
 
-    ![In this screenshot, the 'Add route' blade of the AppRT route table in the Azure portal is depicted with the required settings listed above selected.](images/hol-ex4-task2-add-route-blade-app-to-mgmt.png "Edit route")
+    ![In this screenshot, the 'Add route' blade of the AppRT route table in the Azure portal is depicted with the required settings listed above highlighted.](images/hol-ex4-task2-add-route-blade-app-to-mgmt.png "Edit route")
 
 4. Upon completion, your routes in the **AppRT** route table should look like the following screenshot:
 
     ![In this screenshot, the Routes blade of the AppRT route table is depicted with the two newly creates routes listed.](images/hol-ex4-task2-apprt-route-table.png "Route table ")
 
-5. In the Azure Portal, go to All Services and type Route in the search box and select **Route tables**.
+5. In the Azure Portal, go to All Services and type **route** in the search box and select **Route tables**.
 
 6. Select **MgmtRT**, and select **Routes** under **Settings** on the left.
 
-    ![In this screenshot, the 'Route tables' blade of the Azure portal is depicted with the MgmtRT route table selected.](images/hol-ex4-task2-mgmtrt-in-route-tables.png "MgmtRT")
+    ![In this screenshot, the 'Routes' blade of the Azure portal is depicted with the MgmtRT route table selected. The Routes option under the Settings section of the left navigation is highlighted.](images/hol-ex4-task2-mgmtrt-in-route-tables.png "MgmtRT")
 
 7. On the **Routes** blade, select **+Add**. Enter the following information, and select **OK**:
 
     - Route name: **MgmtToOnPremises**
+
+    - Address prefix destination: **IP Addresses**
 
     - Address prefix: **192.168.0.0/16**
 
