@@ -598,7 +598,9 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
 ### Task 1: Create a load balancer to distribute load between the web servers
 
-1. In the Azure portal, select **Load balancers** on the left navigation then select **+ Create**.
+1. In the Azure portal, from the home page navigation, select **Load balancers**, then select **+ Create**.
+
+    ![In this screenshot, the navigation from the Azure portal home page is expanded. The hamburger menu (three stacked lines) and 'Load balancers' option are highlighted.](images/hol-ex5-task1-load-balancer-navigation.png)
 
 2. On the **Create load balancer** blade, on the **Basics** tab, enter the following values:
 
@@ -610,15 +612,17 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     - Region: **South Central US**
 
+    - SKU: **Standard**
+
     - Type: **Internal**
 
-    - SKU: **Standard**
+    - Tier: **Regional**
 
     Ensure your **Create load balancer** dialog looks like the following, and select **Next: Frontend IP configuration** then select **Create**.
 
-    ![In this screenshot, the 'Create load balancer' blade is depicted with the required settings listed above selected along with the 'Next: Frontend IP configuration' button.](images/hol-ex5-task1-create-load-balancer-wgweblb.png "Create load balancer")
+    ![In this screenshot, the 'Create load balancer' blade is depicted with the required settings listed above and the 'Next: Frontend IP configuration' button highlighted.](images/hol-ex5-task1-create-load-balancer-wgweblb.png "Create load balancer")
 
-3. On the **Frontend IP configuration** tile, select **+ Add a frontend IP configuration and enter the following values:
+3. On the **Frontend IP configuration** tile, select **+ Add a frontend IP configuration** and enter the following values:
 
     - Name: **WGWEBLBIP**
 
@@ -626,13 +630,19 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     - Subnet: **AppSubnet (10.8.0.0/25)**
 
-    - IP address assignment: Select **Static** and enter the IP address **10.8.0.100**.
+    - Assignment: **Static**
 
-    Ensure your **Create load balancer - Frontend IP configuration** dialog looks like the following, and select **Add**, **Review + create** then select **Create**.
+    - IP address: **10.8.0.100**
 
-    ![In this screenshot, the 'Frontend IP configuration' blade is depicted with the required settings listed above selected along with the 'Review + create' button.](images/hol-ex5-task1-frontend-ip-config.png "Frontend IP configuration")
+    - Availability zone: **1**
 
-    >**Note**: **Backend pools** can now be configured within the **Create Load balancer** wizard.  For this exercise, we will complete this in the next task.
+    Ensure your **Create load balancer - Frontend IP configuration** dialog looks like the following, and select **Add**.
+
+    ![In this screenshot, the 'Frontend IP configuration' blade is depicted with the required settings listed above as well as the Add button highlighted.](images/hol-ex5-task1-frontend-ip-config.png "Frontend IP configuration")
+
+4. Select **Review + create**, and then select **Create**.
+
+    >**Note**: **Backend pools** can now be configured within the **Create Load balancer** wizard.  For this exercise, we will complete this in the next task to show where to find it on the resource.
 
 ### Task 2: Configure the load balancer
 
@@ -642,29 +652,31 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     ![In this screenshot, the Azure portal blade for the WGWEBLB load balancer is depicted with Backend pools' selected on the left and the '+ Add' button selected.](images/hol-ex5-task2-backend-pools-add-button.png "Load balancer blade")
 
-3. Enter **LBBE** for the pool name. Under **Associated to**, select **Virtual machine**.
+3. Enter **LBBE** for the pool name. Select **NIC** for **Backend Pool Configuration**. Under **IP Configurations**, select **+ Add**.
 
     ![In this screenshot, the 'Add backend pool' blade is depicted with the Name and 'Associated to' fields filled in as listed above.](images/hol-ex5-task2-add-backend-pool.png "Add backend pool blade")
 
 4. Under **Virtual machine**, select **+ Add** and choose the **WGWEB1** and **WGWEB2** virtual machines and select **Add**.
 
-5. Select **Add** at the bottom of the **Add backend pool** blade to add the backend pool.
+    ![In this screenshot, the 'Add IP configurations to backend pool' blade is depicted with WGWEB1 and WGWEB2 options highlighted and checked. The Add button is also highlighted.](images/hol-ex5-task2-add-vms-to-backend-pool.png)
 
-6. Wait to proceed until the Backend pool configuration is finished updating.
-
-    ![In this screenshot, the 'WGWEBLB - Backend pools' blade of the Azure portal is depicted. The two virtual machines in the backend pool show a status of running, indicating that the backend pool configuration is complete.](images/hol-ex5-task2-backend-pools.png "Backend pool blade")
-
-    >**Note**: If you do not see WGWEB1 in the Virtual Machine selection list, the public IP address was not created as a Standard SKU.  Locate **webip** and in the **Overview** tile, select the **Upgrade to Standard SKU** banner to change the SKU.  You will need to change the IP to static in the **Configuration** and temporarily disassociate it from **WGWEB1NetworkInterface**.
+    >**Note**: If you do not see WGWEB1 in the Virtual Machine selection list, the public IP address was not created as a Standard SKU.  Locate **webip** and in the **Overview** tile, select the **Upgrade to Standard SKU** banner to change the SKU.  You will need to change the IP to **Static** in the **Configuration** and temporarily **Disassociate** it from **WGWEB1NetworkInterface**.
 
     ![In this screenshot, the upgrade to standard sku will take you through the process of upgrading the public IP address.](images/hol-ex5-task2-upgrade-ip-address-sku.png "Upgrade Public IP from Basic to Standard")
 
-7. Next, under **Settings** on the WGWEBLB Load Balancer blade select **Health Probes**. Select **+ Add**, and use the following information to create a health probe.
+5. Select **Save** at the bottom of the **Add backend pool** blade to add the backend pool.
+
+6. Wait to proceed until the Backend pool configuration is finished updating. When the backends are added, they should look like the following image.
+
+    ![In this screenshot, the 'WGWEBLB - Backend pools' blade of the Azure portal is depicted. The two virtual machines in the backend pool show a status of running, indicating that the backend pool configuration is complete.](images/hol-ex5-task2-backend-pools.png "Backend pool blade")
+
+7. Next, under **Settings** on the WGWEBLB Load Balancer blade, select **Health Probes**. Select **+ Add**, and use the following information to create a health probe.
 
     - Name: **HTTP**
 
     - Protocol: **HTTP**
 
-    ![In this screenshot, the 'WGWEBLB' load balancer blade of the Azure portal is depicted with 'Health probes' selected under 'Settings' on the left.](images/hol-ex5-task2-health-probes-add-button.png "Settings section, Add health probe blade")
+    ![In this screenshot, the 'WGWEBLB' load balancer blade of the Azure portal is depicted with 'Health probes' under 'Settings' in the left navigation highlighted.](images/hol-ex5-task2-health-probes-add-button.png "Settings section, Add health probe blade")
 
     ![In this screenshot, the 'Add health probe' blade is depicted with the required settings listed above selected along with the Add button selected.](images/hol-ex5-task2-add-health-probe-blade-http.png "Add health probe blade")
 
@@ -674,13 +686,19 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     - Name: **HTTP**
 
-    - Leave the rest as defaults.
+    - Frontend IP address: Select the load balancer IP entry with **10.8.0.100**.
 
-    ![In this screenshot, the 'Add load balancing rule' blade of the Azure portal is depicted with the required settings listed above selected along with the OK button.](images/hol-ex5-task2-add-load-balancing-rule-http.png "Add load balancing rule")
+    - Backend pool: **LBBE**
 
-    **It will take 2-3 minutes for the changes to save.**
+    - Port: **80**
 
-10. Connect to WGWEB1 via Bastion, open your browser and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of two Web servers.
+    - Backend port: **80**
+
+    - Health probe: **HTTP**
+
+    ![In this screenshot, the 'Add load balancing rule' blade of the Azure portal is depicted with the required settings listed above and the Add button highlighted.](images/hol-ex5-task2-add-load-balancing-rule-http.png "Add load balancing rule")
+
+10. Navigate to WGWEB1 in the Azure portal. Connect to WGWEB1 via Bastion. Within WGWEB1, open your browser and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of two Web servers.
 
     ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB1 web server.](images/hol-ex5-task2-cloudshop-demo-on-wgweb1.png "Server response")
 
@@ -694,7 +712,7 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
 13. Select **IP configurations** under **Settings** on the left.
 
-    ![In this screenshot, the network interface page for the web server on the Azure portal is depicted with 'IP configuration' selected on the left.](images/hol-ex5-task2-ip-configurations.png "Network interface blade")
+    ![In this screenshot, the network interface page for the web server on the Azure portal is depicted with 'IP configuration' in the left navigation highlighted.](images/hol-ex5-task2-ip-configurations.png "Network interface blade")
 
 14. Next, select **ipconfig1** shown above.
 
