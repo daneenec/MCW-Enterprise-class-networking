@@ -134,7 +134,7 @@ Duration: 15 minutes
 
 ### Task 1: Create a Virtual Network
 
-1. From your **LABVM**, connect to the Azure portal, select **+ Create a resource**, and in the **Search the Marketplace** box, search for and select **Virtual network** and select **Create**.
+1. Navigate to the Azure portal. Expand the navigation on the left, then select **+ Create a resource**. In the **Search the Marketplace** box, search for **Virtual network**. Select **Virtual network**, then select **Create**.
 
 2. On the **Create virtual network** blade, on the **Basic** tab, enter the following information:
 
@@ -144,11 +144,11 @@ Duration: 15 minutes
 
     - Name: **WGVNet1**
 
-    - Location: **(US) South Central US**
+    - Location: **South Central US**
 
 3. Select **Next: IP Addresses**
 
-    ![In this screenshot, the Basics tab of the 'Create virtual network' blade is depicted with the configuration options specified in the previous selected and the 'Next: IP Addresses' button selected.](images/hol-ex1-task1-create-virtual-network-basics.png "Create virtual network: Basics")
+    ![In this screenshot, the Basics tab of the 'Create virtual network' blade is depicted with the Resource group, Name, Region, fields and the 'Next: IP Addresses' button highlighted.](images/hol-ex1-task1-create-virtual-network-basics.png "Create virtual network: Basics")
 
 4. On the **Create virtual network - IP Addresses** tab, enter the following information. Then, select **Next: Security**.
 
@@ -160,11 +160,11 @@ Duration: 15 minutes
 
       - Subnet address range: **10.7.0.0/29**
 
-    ![In this screenshot, the 'IP Addresses' tab of the Azure portal's 'Create virtual network' blade is depicted with the required settings specified in the previous step selected and the 'Next: Security' button selected.](images/hol-ex1-task1-add-gateway-subnet.png "Create virtual network: IP Addresses")
+    ![In this screenshot, the 'IP Addresses' tab of the Azure portal's 'Create virtual network' blade is depicted with the IPv4 address space field, added subnet, and 'Next: Security' button highlighted.](images/hol-ex1-task1-add-gateway-subnet.png "Create virtual network: IP Addresses")
 
 5. On the **Create virtual network Security** tab, select **Enable** for **BastionHost**.
 
-6. Enter the following information:
+6. Enter the following information, then select **Review + Create**.
 
     - Bastion name: **WGBastion**
 
@@ -174,25 +174,25 @@ Duration: 15 minutes
 
     - Public IP address name: **BastionPublicIP**
 
-    ![In this screenshot, the 'Security' tab of the Azure portal's 'Create virtual network' blade is depicted with the configuration options specified in the previous step selected along with the 'Review + create' button.](images/hol-ex1-task1-create-virtual-network-security.png "Create virtual network: Security")
+    ![In this screenshot, the 'Security' tab of the Azure portal's 'Create virtual network' blade is depicted with BastionHost, Bastion name, AzureBastionSubnet address space, Public IP address, and 'Review + create' button highlighted.](images/hol-ex1-task1-create-virtual-network-security.png "Create virtual network: Security")
 
 7. Select **Review + Create**.
 
 8. Review the configuration and select **Create**.
 
-    ![In this screenshot, the 'Review + create' tab of the Azure portal's 'Create virtual network' blade is depicted' with the required settings selected throughout the task listed and the 'Create' button selected.](images/hol-ex1-task1-create-virtual-network-review.png "Create virtual network: Review + create")
+    ![In this screenshot, the 'Review + create' tab of the Azure portal's 'Create virtual network' blade is depicted' with the 'Create' button highlighted.](images/hol-ex1-task1-create-virtual-network-review.png "Create virtual network: Review + create")
 
-9. Monitor the deployment status by selecting **Notifications Bell** at the top of the portal. In a minute or so, you should see a confirmation of the successful deployment. Select **Go to Resource**.
+9. Monitor the deployment status by selecting **Notifications** at the top of the portal. When the deployment is complete, select **Go to Resource**.
 
 ### Task 2: Configure subnets
 
-1. Go to the WGVNetRG1 Group, and select **WGVNet1 Virtual Network** blade if you're not there already, and select **Subnets** under **Settings** on the left.
+1. Go to the WGVNetRG1 Group, and select **WGVNet1** virtual network resource. Once you are on the WGVNet1 virtual network blade, select **Subnets** under **Settings** from the navigation on the left.
 
-    ![In the Virtual Network blade, under Settings, Subnets is selected.](images/hol-ex1-task2-subnets-navigation.png "Virtual Network blade")
+    ![In the Virtual Network blade, in the Settings section of the navigation, Subnets is highlighted.](images/hol-ex1-task2-subnets-navigation.png "Virtual Network blade")
 
 2. In the **Subnets** blade select **+Subnet**.
 
-    ![In the Subnets blade, the add Subnet button is selected.](images/hol-ex1-task2-add-subnet-button.png "Subnets blade")
+    ![In the Subnets blade for WGVNet1, the add Subnet button is highlighted.](images/hol-ex1-task2-add-subnet-button.png "Subnets blade")
 
 3. On the **Add subnet** blade, enter the following information:
 
@@ -208,7 +208,7 @@ Duration: 15 minutes
 
 4. When your dialog looks like the following screenshot, select **Save** to create the subnet.
 
-    ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the settings specified in the previous step selected.](images/hol-ex1-task2-add-subnet-blade-management.png "Add Subnet blade - Management subnet")
+    ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the settings from the previous step as well as the Save button highlighted.](images/hol-ex1-task2-add-subnet-blade-management.png "Add Subnet blade - Management subnet")
 
 5. Repeat Step 3, enter the following information for the Azure Firewall which we will use to control traffic flow in and out of the Network.
 
@@ -216,13 +216,15 @@ Duration: 15 minutes
 
     - Address range: **10.7.1.0/24**
 
+    - NAT gateway: **None**
+
     - Network security group: **None**
 
     - Route table: **None**
 
     - Service Endpoints: **Leave as Default**
 
-    ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the settings specified above selected.](images/hol-ex1-task2-add-subnet-blade-azure-firewall.png "Add Subnet blade - Azure Firewall subnet")
+    ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the settings from this step as well as the Save button highlighted.](images/hol-ex1-task2-add-subnet-blade-azure-firewall.png "Add Subnet blade - Azure Firewall subnet")
 
 ## Exercise 2: Virtual Network Peering
 
