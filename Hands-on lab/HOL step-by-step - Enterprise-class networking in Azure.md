@@ -568,11 +568,13 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Next hop address: **Leave blank**.
 
-    ![In this screenshot, the 'Add route' blade of the MgmtRT route table in the Azure portal is depicted with the required settings listed above selected.](images/hol-ex4-task2-add-route-blade-mgmt-to-onpremises.png "Add route")
+    ![In this screenshot, the 'Add route' blade of the MgmtRT route table in the Azure portal is depicted with the required settings listed above highlighted.](images/hol-ex4-task2-add-route-blade-mgmt-to-onpremises.png "Add route")
 
 8. Add the **MgmtToApp** route using the following information:
 
     - Route name: **MgmtToApp**
+
+    - Address prefix destination: **IP Addresses**
 
     - Address prefix: **10.7.2.0/25**
 
@@ -580,7 +582,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Next hop address: **10.7.1.4** (This is the private IP of Azure Firewall.)
 
-    ![In this screenshot, the 'Add route' blade of the MgmtRT route table in the Azure portal is depicted with the required settings listed above selected.](images/hol-ex4-task2-add-route-blade-mgmt-to-app.png "Add route")
+    ![In this screenshot, the 'Add route' blade of the MgmtRT route table in the Azure portal is depicted with the required settings listed above highlighted.](images/hol-ex4-task2-add-route-blade-mgmt-to-app.png "Add route")
 
 9. Upon completion, your routes in the **MgmtRT** route table should look like the following screenshot:
 
