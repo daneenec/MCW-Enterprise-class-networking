@@ -56,16 +56,14 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 2: Configure gateway subnets for on premise Virtual Network](#task-2-configure-gateway-subnets-for-on-premise-virtual-network)
     - [Task 3: Create the first gateway](#task-3-create-the-first-gateway)
     - [Task 4: Create the second gateway](#task-4-create-the-second-gateway)
-    - [Task 5: Connect the gateways](#task-5-connect-the-gateways)
-  - [Exercise 8: Build the Bastion host service](#exercise-8-build-the-bastion-host-service)
-    - [Task 1: Build the Bastion host](#task-1-build-the-bastion-host)
-  - [Exercise 9: Validate connectivity from 'on-premises' to Azure](#exercise-9-validate-connectivity-from-on-premises-to-azure)
+    - [Task 5: Connect the gateways](#task-5-connect-the-gateways)  
+  - [Exercise 8: Validate connectivity from 'on-premises' to Azure](#exercise-8-validate-connectivity-from-on-premises-to-azure)
     - [Task 1: Create a virtual machine to validate connectivity](#task-1-create-a-virtual-machine-to-validate-connectivity)
     - [Task 2: Configure routing for simulated 'on-premises' to Azure traffic](#task-2-configure-routing-for-simulated-on-premises-to-azure-traffic)
-  - [Exercise 10: Create a Network Monitoring Solution](#exercise-10-create-a-network-monitoring-solution)
+  - [Exercise 9: Create a Network Monitoring Solution](#exercise-9-create-a-network-monitoring-solution)
     - [Task 1: Create a Log Analytics Workspace](#task-1-create-a-log-analytics-workspace)
     - [Task 2: Configure Network Watcher](#task-2-configure-network-watcher)
-  - [Exercise 11: Using Network Watcher to Test and Validate Connectivity](#exercise-11-using-network-watcher-to-test-and-validate-connectivity)
+  - [Exercise 10: Using Network Watcher to Test and Validate Connectivity](#exercise-10-using-network-watcher-to-test-and-validate-connectivity)
     - [Task 1: Configuring the Storage Account for the NSG Flow Logs](#task-1-configuring-the-storage-account-for-the-nsg-flow-logs)
     - [Task 2: Configuring Diagnostic Logs](#task-2-configuring-diagnostic-logs)
     - [Task 3: Reviewing Network Traffic](#task-3-reviewing-network-traffic)
@@ -1048,39 +1046,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     ![In this screenshot, the Connections blade of the Azure portal is depicted with the two connections created earlier listed with their respective statuses showing as Connected.](images/hol-ex7-task5-connections-blade.png "Connections blade")
 
-## Exercise 8: Build the Bastion host service
-
-Duration: 15 minutes
-
-In this exercise, management of the Azure-based systems will only be available through a Bastion host. In this section, you will provision this service.
-
-### Task 1: Build the Bastion host
-
-**Note**: This step should have been completed in Exercise 1, Task 1. If it was not, please complete the steps below.
-
-1. In the Azure portal, select **+ Create a resource** then select **Bastion**. In the search results, select the Bastion service with Microsoft as the publisher.
-
-2. On the **Create a Bastion** blade, on the **Basics** tab, enter the following information, and select **Review + Create**:
-
-    - Subscription: **Select your subscription**.
-
-    - Resource group: Select **WGVnetRG1**.
-
-    - Name: **WGBastion**
-
-    - Region: **South Central US**
-
-    - Virtual network: **WGVNet1**
-
-    - Subnet: **AzureBastionSubnet** Note: After creation, assign (10.7.5.0/24) as the subnet address.
-
-    - Public IP: **Create New**
-
-    - Public IP address name: **BastionPublicIP**
-
-3. On the **Create a Bastion** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. The Bastion host will take about 5 minutes to provision.
-
-## Exercise 9: Validate connectivity from 'on-premises' to Azure
+## Exercise 8: Validate connectivity from 'on-premises' to Azure
 
 Duration: 30 minutes
 
@@ -1210,7 +1176,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     - From within the WGWEB1 VM Bastion connection session, initiate a Remote Desktop session to the WGSQL1 via its private IP address (10.8.1.4). This should be successful since it is allowed by Azure Firewall.
 
-## Exercise 10: Create a Network Monitoring Solution
+## Exercise 9: Create a Network Monitoring Solution
 
 Duration: 15 minutes
 
@@ -1244,7 +1210,7 @@ Duration: 15 minutes
 
    ![In this screenshot, the 'Overview' blade of the 'Network Watcher' service is depicted with the available regions listed and the '+ Add' button selected.](images/hol-ex10-task2-network-watcher.png "Network Watcher Overview blade")
 
-## Exercise 11: Using Network Watcher to Test and Validate Connectivity
+## Exercise 10: Using Network Watcher to Test and Validate Connectivity
 
 Duration: 60 minutes
 
