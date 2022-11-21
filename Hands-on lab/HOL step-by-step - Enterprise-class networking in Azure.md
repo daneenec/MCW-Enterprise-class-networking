@@ -1202,15 +1202,15 @@ Duration: 15 minutes
 
 ### Task 2: Configure Network Watcher
 
-1. From your **LABVM**, connect to the Azure portal, select **All Services** on the left navigation, and in the Category list, select **Networking** followed by selecting **Network Watcher**.
+1. Connect to the Azure portal. Select **All Services** on the left navigation, and in the Category list, select **Networking** followed by selecting **Network Watcher**.
 
-    ![In this screenshot, the 'All services' blade of the Azure portal is depicted with the Networking category selected on the left and 'Network watcher' selected on the list.](images/hol-ex10-task2-services-network-watcher.png "All Services blade")
+    ![In this screenshot, the 'All services' blade of the Azure portal is depicted with the Networking category selected on the left and 'Network watcher' selected on the list.](images/hol-ex9-task2-services-network-watcher.png "All Services blade")
 
 2. In the **Overview** blade, ensure that **NetworkWatcher_southcentralus** and **NetworkWatcher_eastus** is listed.
 
 3. If they are not listed, add them to the list using the **+ Add** button.
 
-   ![In this screenshot, the 'Overview' blade of the 'Network Watcher' service is depicted with the available regions listed and the '+ Add' button selected.](images/hol-ex10-task2-network-watcher.png "Network Watcher Overview blade")
+   ![In this screenshot, the 'Overview' blade of the 'Network Watcher' service is depicted with the available regions listed and the '+ Add' button selected.](images/hol-ex9-task2-network-watcher.png "Network Watcher Overview blade")
 
 ## Exercise 10: Using Network Watcher to Test and Validate Connectivity
 
@@ -1220,9 +1220,9 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 ### Task 1: Configuring the Storage Account for the NSG Flow Logs
 
-1. On the Azure portal select **+ Create a resource**. Select **Storage Account**.
+1. On the Azure portal select **+ Create a resource**. Select **Storage account**. Select **Create**.
 
-2. On the **Create Storage account** blade. Enter the following information, and select **Review + Create** then select the **Create** button:
+2. On the **Create a storage account** blade. Enter the following information, and select **Review + Create** then select the **Create** button:
 
     - Subscription: **Your Subscription**
 
@@ -1230,7 +1230,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Storage Account Name: **This must be Unique and alphanumeric, lowercase and no special characters.**
 
-    - Location: **South Central US**
+    - Location: **(US) South Central US**
 
     - Performance: **Standard**
 
@@ -1238,7 +1238,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Replication: **Locally-redundant storage (LRS)**
 
-    ![In this screenshot, the 'Create storage account' blade is depicted with the above required settings selected along with the 'Review + create' button.](images/hol-ex11-task1-create-storage-account-monitoring.png "Add storage account")
+    ![In this screenshot, the 'Create storage account' blade is depicted with the above required settings selected along with the 'Review + create' button.](images/hol-ex10-task1-create-storage-account-monitoring.png "Add storage account")
 
    >**Note:** Ensure the storage account is created before continuing.
 
@@ -1248,7 +1248,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 5. From the **Network Watcher** blade under the **Logs** menu on the left, select **NSG flow logs**. Select **+ Create**.
 
-    ![In this screenshot, the 'NSG Flow logs blade is depicted with the '+ Create' button selected.](images/hol-ex11-task1-nsg-flow-logs-create-button.png "Network Security Groups in Flow Log")
+    ![In this screenshot, the 'NSG Flow logs blade is depicted with the '+ Create' button selected.](images/hol-ex10-task1-nsg-flow-logs-create-button.png "Network Security Groups in Flow Log")
 
 6. In the **Create a flow log** blade that appears, enter the following information then select **Next: Configuration**.
 
@@ -1260,7 +1260,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Retention (days): **0**
 
-    ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/hol-ex11-task1-create-flowlog-wgappnsg1.png "Create a flow log Basics")
+    ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/hol-ex10-task1-create-flowlog-wgappnsg1.png "Create a flow log Basics")
 
 7. On the **Configuration** tab of the **Create a flow log** blade, enter the following information then select **Review + create** then **Create**.
 
@@ -1274,30 +1274,15 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 8. Repeat Steps 5 - 7 to create a flow log for the **OnPremVM-nsg** Network Security Group as well. When completed your **NSG flow logs** blade on **Network Watcher** should look like what's depicted in the below image.
 
-     ![In this screenshot, the 'Network Watcher - NSG flow logs' blade is depicted with the two flow logs created earlier listed.](images/hol-ex11-task1-nsg-flow-logs-blade.png "Network Watcher Flow Log")
+     ![In this screenshot, the 'Network Watcher - NSG flow logs' blade is depicted with the two flow logs created earlier listed.](images/hol-ex10-task1-nsg-flow-logs-blade.png "Network Watcher Flow Log")
 
 9. Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file.
 
-10. Install the **Edge** browser on the **OnPremVM** by opening **PowerShell** and running the following commands.  The first command will force TLS 1.2 use for PowerShell:
+10. Open the **Microsoft Edge** browser from the Start menu. Navigate to portal.azure.com.  Login to the **Azure** portal.
 
-    ```powershell
-    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+11. In the RDP session for the **OnPremVM**, navigate to the **Azure** portal, navigate to **Virtual machines** and select the **WGWEB1**. Connect to **WGWEB1** through **Bastion**.  In **WGWEB1**,  navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.
 
-    [enum]::GetNames([System.Net.SecurityProtocolType])
-
-    md -Path $env:temp\edgeinstall -erroraction SilentlyContinue | Out-Null
-    $Download = join-path $env:temp\edgeinstall MicrosoftEdgeEnterpriseX64.msi
-
-    Invoke-WebRequest 'https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/a2662b5b-97d0-4312-8946-598355851b3b/MicrosoftEdgeEnterpriseX64.msi'  -OutFile $Download
-
-    Start-Process "$Download" -ArgumentList "/quiet /passive"
-    ```
-
-11. Open the **Edge** browser and navigate to portal.azure.com.  Login to the **Azure** portal.
-
-12. In the RDP session for the **OnPremVM**, navigate to the **Azure** portal, navigate to **Virtual machines** and select the **WGWEB1**. Connect to **WGWEB1** through **Bastion**.  In **WGWEB1**,  navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.
-
-     ![In this screenshot, the RDP connections to OnPremVM and WGWEB1 are depicted with the load balancer connection open.](images/hol-ex11-task1-web-traffic-over-load-balancer.png "CloudShop Application")
+     ![In this screenshot, the RDP connections to OnPremVM and WGWEB1 are depicted with the load balancer connection open.](images/hol-ex10-task1-web-traffic-over-load-balancer.png "CloudShop Application")
 
 ### Task 2: Configuring Diagnostic Logs
 
@@ -1305,21 +1290,21 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 2. Select **Diagnostic Logs** from the **Logs Menu** within the blade.
 
-     ![In this screenshot, the 'Network Watcher - Diagnostic logs' blade of the Azure portal is depicted with 'Diagnostic logs' selected under 'Logs' on the left](images/image192.png "Network Watcher Diagnostic Log")
-
 3. Select **onpremvm*NNN*** then select **+Add diagnostic setting**.
+
+     ![In this screenshot, the Diagnostics logs blade of Network Watch is depicted. The 'Diagnostic Logs' menu option and the resources that starts with 'onpremvm' are highlighted.](images/hol-ex10-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic logs")
 
 4. Enter **OnPremDiag** as the name then select the checkbox for **Archive to a storage account**. On the **Storage accounts** drop down, select the available storage account you created earlier.
 
-     ![In this screenshot, the 'Diagnostic setting' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex11-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic Resources")
+     ![In this screenshot, the 'Diagnostic setting' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex10-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic Resources")
 
 5. Select the **Send to Log Analytics workspace** checkbox. Select the workspace created earlier in the dropdown. Select the **AllMetrics** checkbox and set the **Retention (days)** to **60**. Select the **Save** button to complete the settings.
 
-     ![In this screenshot, the 'Diagnostic setting' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex11-task2-diagnostic-setting-blade.png "Diagnostic Settings")
+     ![In this screenshot, the 'Diagnostic setting' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex10-task2-diagnostic-setting-blade.png "Diagnostic Settings")
 
 6. Repeat Steps 2 - 5 for each network resource. Once completed your settings will look like the following screenshot.
 
-     ![In this screenshot, the 'Network Watcher - Diagnostic logs' blade is depicted with all the network resources having a 'Diagnostic status' of 'Enabled'.](images/hol-ex11-task2-diagnostic-logs.png "Diagnostic Settings")
+     ![In this screenshot, the 'Network Watcher - Diagnostic logs' blade is depicted with all the network resources having a 'Diagnostic status' of 'Enabled'.](images/hol-ex10-task2-diagnostic-logs.png "Diagnostic Settings")
 
 ### Task 3: Reviewing Network Traffic
 
@@ -1327,11 +1312,11 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 2. Select **Traffic Analytics** from the **Logs** menu in the blade. At this time, the diagnostic logs from the network resources have been ingested. Select **View map**.
 
-     ![In this screenshot, the 'Network Watcher - Traffic Analytics' blade is depicted is depicted with the 'View map' button selected.](images/hol-ex11-task3-network-watcher-traffic-analytics.png "Your Network Environment")
+     ![In this screenshot, the 'Network Watcher - Traffic Analytics' blade is depicted is depicted with the 'View map' button selected.](images/hol-ex10-task3-network-watcher-traffic-analytics.png "Your Network Environment")
 
 3. Select the **green check mark** which identifies your network. Within the pop-up menu select **More Details** to propagate detailed information of the flow to and from your network.
 
-     ![In this screenshot, the Traffic Analytics Geo Map View is depicted with a green check mark on the region where your network resides and monitor metrics displayed next to it.](images/hol-ex11-task3-network-watcher-traffic-analytics-map.png "Your Network Environment")
+     ![In this screenshot, the Traffic Analytics Geo Map View is depicted with a green check mark on the region where your network resides and monitor metrics displayed next to it.](images/hol-ex10-task3-network-watcher-traffic-analytics-map.png "Your Network Environment")
 
 >**Note:** You can select the **See More** link to query the connections detail for more information.
 
@@ -1361,11 +1346,11 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Destination Port: **80**
 
-     ![In this screenshot, the 'Network Watcher - Connection troubleshoot' blade is depicted with the required settings listed above selected.](images/hol-ex11-task4-network-watcher-connection-troubleshoot-settings.png "Connection Troubleshoot")
+     ![In this screenshot, the 'Network Watcher - Connection troubleshoot' blade is depicted with the required settings listed above selected.](images/hol-ex10-task4-network-watcher-connection-troubleshoot-settings.png "Connection Troubleshoot")
 
 4. Once the check is complete the connection troubleshoot feature will display a grid view on the name, IP Address Status and Next hop as seen in the following screenshot.
 
-     ![In this screenshot, the results of the connection troubleshoot operation performed in the previous step is depicted with a grid view showing the name, IP Address Status, and Next hop IP address.](images/hol-ex11-task4-network-watcher-connection-troubleshoot.png "Connection Troubleshoot")
+     ![In this screenshot, the results of the connection troubleshoot operation performed in the previous step is depicted with a grid view showing the name, IP Address Status, and Next hop IP address.](images/hol-ex10-task4-network-watcher-connection-troubleshoot.png "Connection Troubleshoot")
 
 ## After the hands-on lab
 
