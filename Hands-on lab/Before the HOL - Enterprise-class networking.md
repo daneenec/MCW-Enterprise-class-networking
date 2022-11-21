@@ -49,7 +49,7 @@ Duration: 15 minutes
 
 ### Task 1: Download hands-on lab step-by-step support files
 
-1. Within the Remote Desktop session to **LABVM**, open Microsoft Edge (pinned in the taskbar) and download the zipped hands-on lab step-by-step student files by navigating to the following link: <https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab/labfiles/ECN-Hackathon.zip>
+1. Download the zipped hands-on lab step-by-step student files by navigating to the following link: <https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab/labfiles/ECN-Hackathon.zip>
 
 2. Extract the downloaded ECN-Hackathon.zip file into the directory **C:\\ECN-Hackathon**.
 
@@ -119,7 +119,7 @@ Duration: 15 minutes
 
 ### Task 3: Use the Azure portal for a template deployment
 
-1. On your LABVM, open the **C:\\ECN-Hackathon** folder which contains the student files for this lab.
+1. Open the folder which contains the extracted student files for this lab. This is the folder you extracted the files to in Task 1, Step 2.
 
 2. Make sure you are signed into the Azure portal at <http://portal.azure.com>.
 
