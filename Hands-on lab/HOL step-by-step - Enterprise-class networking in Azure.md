@@ -1296,8 +1296,6 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 4. Enter **OnPremDiag** as the name then select the checkbox for **Archive to a storage account**. On the **Storage accounts** drop down, select the available storage account you created earlier.
 
-     ![In this screenshot, the 'Diagnostic setting' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex10-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic Resources")
-
 5. Select the **Send to Log Analytics workspace** checkbox. Select the workspace created earlier in the dropdown. Select the **AllMetrics** checkbox and set the **Retention (days)** to **60**. Select the **Save** button to complete the settings.
 
      ![In this screenshot, the 'Diagnostic setting' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex10-task2-diagnostic-setting-blade.png "Diagnostic Settings")
@@ -1356,6 +1354,14 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 Duration: 10 minutes
 
-After you have successfully completed the Enterprise-class networking in Azure hands-on lab step-by-step, you will want to delete the Resource Groups. This will free up your subscription from future charges.
+After you have successfully completed the Enterprise-class networking in Azure hands-on lab step-by-step, you will want to delete the Resource Groups created. This will free up your subscription from future charges.
+
+The resource groups that were called out in this lab include:
+
+- MonitoringRG
+- OnPremVMRG
+- OnPremVNetRG
+- WGVNetRG1
+- WGVNetRG2
 
 You should follow all steps provided *after* attending the Hands-on lab.
