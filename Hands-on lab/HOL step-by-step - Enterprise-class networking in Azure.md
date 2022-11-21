@@ -158,9 +158,7 @@ Duration: 15 minutes
 
       - Subnet name: **GatewaySubnet**
 
-      - Subnet address range: **10.7.0.0/29**
-
-    ![In this screenshot, the 'IP Addresses' tab of the Azure portal's 'Create virtual network' blade is depicted with the IPv4 address space field, added subnet, and 'Next: Security' button highlighted.](images/hol-ex1-task1-add-gateway-subnet.png "Create virtual network: IP Addresses")
+      - Subnet address range: **10.7.0.0/27**
 
 5. On the **Create virtual network Security** tab, select **Enable** for **BastionHost**.
 
@@ -896,7 +894,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Name: **OnPremVNet**
 
-    - Region: **(US) East US** (Make sure this is **NOT** the same location you have specified in the previous exercises.)
+    - Region: **East US** (Make sure this is **NOT** the same location you have specified in the previous exercises.)
 
 3. Leave the other options with their default values.
 
@@ -918,7 +916,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 2: Configure gateway subnets for on premise Virtual Network
 
-1. Select the **OnPremVnetRG** Resource Group and then open the **OnPremVNet** blade and select **Subnets**.
+1. Select the **OnPremVNetRG** Resource Group and then open the **OnPremVNet** blade and select **Subnets**.
 
 2. Next, select **+ Gateway subnet**.
 
@@ -926,7 +924,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 3. Specify the following configuration for the subnet, and select **Save**:
 
-    - Subnet address range: **192.168.1.0/29**
+    - Subnet address range: **192.168.1.0/27**
 
     - Route table: **None** (We will add this later.)
 
@@ -936,15 +934,15 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Name: **OnPremManagementSubnet**
 
-    - Address range: **192.168.2.0/29**
+    - Address range: **192.168.2.0/27**
 
-    - Leave the rest of the values as their defaults.
+    - Leave the rest of the values as their defaults. Select **Save**.
 
     ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required settings listed above selected along with the Save button.](images/hol-ex7-task2-add-onprem-mgmt-subnet.png "Add subnet")
 
 ### Task 3: Create the first gateway
 
-1. Using the Azure Management portal, select **+ Create a resource**, type **Virtual Network gateway** in the **Search the Marketplace** text box, in the list of results, select **Virtual network gateway**, and then select **Create**.
+1. Using the Azure Management portal, select **+ Create a resource**, type **Virtual network gateway** in the **Search the Marketplace** text box, in the list of results, select **Virtual network gateway**, and then select **Create**.
 
 2. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
 
@@ -952,7 +950,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Name: **OnPremWGGateway**
 
-    - Region: **(US) East US** (This must match the location in which you created the **OnPremVNet** virtual network.)
+    - Region: **East US** (This must match the location in which you created the **OnPremVNet** virtual network.)
 
     - Gateway type: **VPN**
 
@@ -972,7 +970,9 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Configure BGP: **Disabled**
 
-    ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the above required settings selected.](images/hol-ex7-task3-create-onpremwggateway.png "Create virtual network gateway")
+    ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the above Project details and Instance details highlighted.](images/hol-ex7-task3-create-onpremwggateway-1.png "Create virtual network gateway Instance details")
+
+    ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the Public IP settings.](images/hol-ex7-task3-create-onpremwggateway-2.png "Create virtual network gateway Public IP addresses")
 
 3. Validate your settings and select **Review + Create** then **Create**.
 
@@ -1010,7 +1010,9 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Configure BGP: **Disabled**
 
-    ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the above required settings selected.](images/hol-ex7-task4-create-wgvnet1gateway.png "Create virtual network gateway")
+    ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the Instance details settings selected.](images/hol-ex7-task4-create-wgvnet1gateway-1.png "Create virtual network gateway - Instance details")
+
+    ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the above public IP settings selected.](images/hol-ex7-task4-create-wgvnet1gateway-2.png "Create virtual network gateway - Public IP addresses")
 
 3. Validate your settings and select **Review + Create** then **Create**.
 
@@ -1148,7 +1150,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 ### Task 2: Configure routing for simulated 'on-premises' to Azure traffic
 
-When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNet1), they arrive at the gateway WGVNet1Gateway. This gateway is in a gateway subnet (10.7.0.0/29). For packets to be directed to the Azure firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure-side'.
+When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNet1), they arrive at the gateway WGVNet1Gateway. This gateway is in a gateway subnet (10.7.0.0/27). For packets to be directed to the Azure firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure-side'.
 
 1. On the Azure portal select **All services** at the left navigation. Enter **Route** in the search box, and select **Route tables**.
 
