@@ -1040,9 +1040,9 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 5. Select **Create** on the **Summary** page to create the connection.
 
-6. In the Azure portal, select **All services** on the left navigation. Then, type **connections** in the search text box and select **Connections**.
+6. In the Azure portal, in the 'Search resources, services, and docs' search box, type **connections** in the search text box. Select **Connections**.
 
-    ![In this screenshot, the 'All services' of the Azure portal is depicted with Connections searched for and selected.](images/hol-ex7-task5-search-for-connections.png "Azure Portal")
+    ![In this screenshot, the 'Search resources, services, and docs' search box of the Azure portal is depicted with Connections searched for and selected.](images/hol-ex7-task5-search-for-connections.png "Azure Portal")
 
 7. Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
 
