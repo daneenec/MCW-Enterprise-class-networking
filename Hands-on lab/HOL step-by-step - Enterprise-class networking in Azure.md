@@ -322,6 +322,14 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
 ### Task 3: Create network security group
 
+This task will create a network security group with the following rules:
+
+- Allow SQL traffic (port 1433) from the WebTier application security group to the DataTier application security group.
+- Allow HTTP web traffic (port 80) from anywhere to the WebTier application security group.
+- Allow RDP traffic (port 3389) from the Azure Bastion range to anywhere.
+- Deny all other traffic from the virtual machines to the data tier.
+- Deny all other traffic from the virtual machines to the web tier.
+
 1. In the Azure portal, select **+ Create a resource**. In the **Search the Marketplace** box, **Network security group** and press Enter. On the **Network security group** blade, select **Create**.
 
 2. On the **Create network security group** blade, enter the following information, and select **Review + Create** then **Create**:
@@ -532,7 +540,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Next hop type: **Virtual appliance**
 
-    - Next hop address: **10.7.1.4**
+    - Next hop address: **10.7.1.4** (This is the private IP of Azure Firewall.)
 
     ![In this screenshot, the 'Add route' blade of the AppRT route table in the Azure portal is depicted with the required settings listed above highlighted.](images/hol-ex4-task2-add-route-blade-app-to-internet.png "Add route configuration")
 
@@ -546,7 +554,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Next hop type: **Virtual appliance**
 
-    - Next hop address: **10.7.1.4**
+    - Next hop address: **10.7.1.4** (This is the private IP of Azure Firewall.)
 
     ![In this screenshot, the 'Add route' blade of the AppRT route table in the Azure portal is depicted with the required settings listed above highlighted.](images/hol-ex4-task2-add-route-blade-app-to-mgmt.png "Edit route")
 
@@ -664,7 +672,7 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     ![In this screenshot, the 'Add IP configurations to backend pool' blade is depicted with WGWEB1 and WGWEB2 options highlighted and checked. The Add button is also highlighted.](images/hol-ex5-task2-add-vms-to-backend-pool.png)
 
-    >**Note**: If you do not see WGWEB1 in the Virtual Machine selection list, the public IP address was not created as a Standard SKU.  Locate **webip** and in the **Overview** tile, select the **Upgrade to Standard SKU** banner to change the SKU.  You will need to change the IP to **Static** in the **Configuration** and temporarily **Disassociate** it from **WGWEB1NetworkInterface**.
+    >**Note**: If you do not see WGWEB1 in the Virtual Machine selection list, the public IP address was not created as a Standard SKU.  Locate **webip** and in the **Overview** tile, select the **Upgrade to Standard SKU** banner to change the SKU.  You will need to change the IP to **Static** in the **Configuration** and temporarily **Disassociate** it from **WGWEB1NetworkInterface**. Once upgraded, **Associate** webip with the **Network Interface** for WGWEB1.
 
     ![In this screenshot, the upgrade to standard sku will take you through the process of upgrading the public IP address.](images/hol-ex5-task2-upgrade-ip-address-sku.png "Upgrade Public IP from Basic to Standard")
 
@@ -686,7 +694,7 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
 8. Select **Add**.
 
-9. After the Health probe has updated. Select **Load balancing rules**. Select **+Add** and complete the configuration as shown below followed by selecting **OK**.
+9. After the Health probe has been added, select **Load balancing rules** from the left navigation. Select **+ Add** and complete the configuration as shown below followed by selecting **Add**.
 
     - Name: **HTTP**
 
@@ -702,11 +710,11 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     ![In this screenshot, the 'Add load balancing rule' blade of the Azure portal is depicted with the required settings listed above and the Add button highlighted.](images/hol-ex5-task2-add-load-balancing-rule-http.png "Add load balancing rule")
 
-10. Navigate to WGWEB1 in the Azure portal. Connect to WGWEB1 via Bastion. Within WGWEB1, open your browser and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of two Web servers.
+10. Navigate to WGWEB1 in the Azure portal. Connect to WGWEB1 via Bastion. Within WGWEB1, open Microsoft Edge from the Start menu and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of two Web servers.
 
-    ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB1 web server.](images/hol-ex5-task2-cloudshop-demo-on-wgweb1.png "Server response")
+    ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB1 web server.](images/hol-ex5-task2-cloudshop-demo-on-wgweb1.png "Server response for the CloudShop demo on WGWEB1")
 
-    ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB2 web server.](images/hol-ex5-task2-cloudshop-demo-on-wgweb2.png "Server response")
+    ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB2 web server.](images/hol-ex5-task2-cloudshop-demo-on-wgweb2.png "Server response for the CloudShop demo on WGWEB1")
 
 11. Using the portal, disassociate the public IP from the NIC of **WGWEB1** VM. Do this by navigating to the VM and selecting **Networking** under **Settings** on the left. Select the **NIC Public IP** then choose **Dissociate**. Select **Yes** when prompted.
 
