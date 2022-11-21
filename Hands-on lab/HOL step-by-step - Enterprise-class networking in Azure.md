@@ -1164,7 +1164,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 10. On the **Associate subnet** blade, select **WGVNet1** under the **Virtual Network** drop down and select **GatewaySubnet** under the **Subnet** drop down.
 
-    ![In this screenshot, the 'Associate subnet' blade of the 'WGAzureVNetGWRT' route table is depicted with the required WGVNet1 virtual network and GatewaySubnet subnet selected along with the OK button.](images/hol-ex9-task2-associate-gatewaysubnet.png "Associate subnet")
+    ![In this screenshot, the 'Associate subnet' blade of the 'WGAzureVNetGWRT' route table is depicted with the required WGVNet1 virtual network and GatewaySubnet subnet selected along with the OK button.](images/hol-ex8-task2-associate-gatewaysubnet.png "Associate subnet")
 
     >**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
 
@@ -1184,7 +1184,7 @@ Duration: 15 minutes
 
 ### Task 1: Create a Log Analytics Workspace
 
-1. From your **LABVM**, connect to the Azure portal, select **+ Create a resource**, and in the **Search the Marketplace** box, search for and select **Log analytics workspace**. Select **Create**.
+1. Connect to the Azure portal. Select **+ Create a resource**, and in the **Search the Marketplace** box, search for and select **Log Analytics Workspace**. Select **Create**.
 
 2. On the **Create workspace** blade, enter the following information:
 
@@ -1198,7 +1198,7 @@ Duration: 15 minutes
 
 3. Upon completion, it should look like the following screenshot. Validate the information is correct, and select **Review + create** then **Create**.
 
-    ![In this screenshot, the 'Create Log Analytics workspace' blade is depicted with the required settings listed in the previous step selected.](images/hol-ex10-task1-create-log-analytics-workspace.png "Create Log Analytics Workspace")
+    ![In this screenshot, the 'Create Log Analytics workspace' blade is depicted with the required settings listed in the previous step and the 'Review + Create' button selected.](images/hol-ex9-task1-create-log-analytics-workspace.png "Create Log Analytics workspace")
 
 ### Task 2: Configure Network Watcher
 
