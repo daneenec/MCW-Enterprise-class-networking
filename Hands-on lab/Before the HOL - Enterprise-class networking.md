@@ -29,11 +29,10 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [Enterprise-class networking in Azure before the hands-on lab setup guide](#enterprise-class-networking-in-azure-before-the-hands-on-lab-setup-guide)
   - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Task 1: Create a virtual machine to execute the PowerShell commands in the lab](#task-1-create-a-virtual-machine-to-execute-the-powershell-commands-in-the-lab)
-    - [Task 2: Download hands-on lab step-by-step support files](#task-2-download-hands-on-lab-step-by-step-support-files)
-    - [Task 3: Create a Virtual Network (hub) with Subnets](#task-3-create-a-virtual-network-hub-with-subnets)
-    - [Task 4: Use the Azure portal for a template deployment](#task-4-use-the-azure-portal-for-a-template-deployment)
-    - [Task 5: Validate the CloudShop application is up after the deployment](#task-5-validate-the-cloudshop-application-is-up-after-the-deployment)
+    - [Task 1: Download hands-on lab step-by-step support files](#task-1-download-hands-on-lab-step-by-step-support-files)
+    - [Task 2: Create a Virtual Network (hub) with Subnets](#task-2-create-a-virtual-network-hub-with-subnets)
+    - [Task 3: Use the Azure portal for a template deployment](#task-3-use-the-azure-portal-for-a-template-deployment)
+    - [Task 4: Validate the CloudShop application is up after the deployment](#task-4-validate-the-cloudshop-application-is-up-after-the-deployment)
 
 <!-- /TOC -->
 
