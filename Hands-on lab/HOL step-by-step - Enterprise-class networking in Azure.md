@@ -1054,7 +1054,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 ### Task 1: Create a virtual machine to validate connectivity
 
-1. Create a new virtual machine in the OnPremVnet virtual network. In the Azure portal, select **+ Create a resource** and select **Windows Server 2019 Datacenter**.
+1. Create a new virtual machine in the OnPremVnet virtual network. In the Azure portal, select **+ Create a resource** and select **Virtual machine**.
 
 2. On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
 
@@ -1068,7 +1068,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
     - Availability options: **No infrastructure redundancy required**
 
-    - Image: **[smalldisk] Windows Server 2019 Datacenter - Gen1**
+    - Image: **Windows Server 2019 Datacenter - Gen2**
 
     - Size: **Standard DS1 v2**
 
@@ -1100,17 +1100,19 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
     - Accelerated networking: **Unchecked**
 
-    - Place this virtual machine behind an existing load balancing solution: **Unchecked**
+    - Load balancing options: **None**
 
 5. On the **Create a virtual machine** blade, on the **Management** tab, set the following configuration and select **Review + create**:
 
-    - Boot diagnostics: **Disable**
-
-    - Enable OS guest diagnostics: **Unchecked**
-
     - System assigned managed identity: **Unchecked**
 
+    - Login with Azure AD: **Unchecked**
+
     - Enable auto-shutdown: **Unchecked**
+
+    - Enable backup: **Unchecked**
+
+    - Enable OS guest diagnostics: **Unchecked**
 
 6. On the **Create a virtual machine** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. The virtual machine will take about 5 minutes to provision.
 
@@ -1134,19 +1136,19 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     - Propagate gateway routes: **Yes**
 
-    ![In this screenshot, the 'Create route table' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex9-task2-create-route-table-wgazurevnetgwrt.png "Create route table")
+    ![In this screenshot, the 'Create route table' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex8-task2-create-route-table-wgazurevnetgwrt.png "Create route table")
 
 4. Select **Review + create** then **Create**.
 
-5. Select the **WGAzureVNetGWRT** route table.
-
-    ![In this screenshot, the 'Route tables' blade of the Azure portal is depicted with the 'WGAzureVNetGWRT' route table selected and it's blade open to it's Routes page.](images/hol-ex9-task2-route-tables-wgazurevnetgwrt-routes-navigation.png "Route tables")
+5. Select **Go to resource** to go to the **WGAzureVNetGWRT** route table.
 
 6. Select **Routes** under **Settings** on the left.
 
-7. On the **Routes** blade, select the **+ Add** button. Enter the following information, and select **OK**:
+7. On the **Routes** blade, select the **+ Add** button. Enter the following information, and select **Add**:
 
     - Route name: **OnPremToAppSubnet**
+
+    - Address prefix destination: **IP Addresses**
 
     - Address prefix: **10.8.0.0/25**
 
@@ -1154,7 +1156,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     - Next hop address: **10.7.1.4**
 
-    ![In this screenshot, the 'Add route' blade of the 'WGAzureVNetGWRT' route table is depicted with the required settings listed above selected along with the OK button.](images/hol-ex9-task2-onpremtoappsubnet-to-virtual-appliance.png "Add route")
+    ![In this screenshot, the 'Add route' blade of the 'WGAzureVNetGWRT' route table is depicted with the required settings listed above selected along with the OK button.](images/hol-ex8-task2-onpremtoappsubnet-to-virtual-appliance.png "Add route")
 
 8. On the **WGAzureVNetGWRT - Routes** blade, select **Subnets** under **Settings** on the left.
 
