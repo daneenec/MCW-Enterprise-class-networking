@@ -740,7 +740,7 @@ In this exercise, you will provision and configure an Azure firewall in your net
 
 ### Task 1: Provision the Azure firewall
 
-1. In the Azure portal, select **+ Create a resource**. In the **Search the Marketplace** text box, type **Firewall**, in the list of results, select **Firewall**, and on the **Firewall** blade, select **Create**.
+1. In the Azure portal, select **+ Create a resource**. In the **Search the Marketplace** text box, type **Azure Firewall**, in the list of results, select **Firewall**, and on the **Firewall** blade, select **Create**.
 
 2. On the **Create a firewall** blade, on the **Basics** tab, enter the following information:
 
@@ -751,6 +751,8 @@ In this exercise, you will provision and configure an Azure firewall in your net
     - Name: **azureFirewall**
 
     - Region: **South Central US**
+
+    - Firewall SKU: **Standard**
 
     - Firewall management: **Use Firewall rules (classic) to manage this Firewall**
 
@@ -798,7 +800,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     - Translated Port: **80**
 
-6. Back on the **azureFirewall - Rules (classic)** page, select the newly created NAT rule collection. Add another rule for HTTPS, as illustrated on the following screenshot (alternatively you could create a single rule for both HTTP and HTTPS).
+6. Back on the **azureFirewall - Rules (classic)** page, select the newly created NAT rule collection. Add another rule for HTTPS, as illustrated on the following screenshot (alternatively you could create a single rule for both HTTP and HTTPS). The rules should look like the image below.
 
     - Rules name: **IncomingHTTPS**
 
@@ -814,11 +816,11 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     - Translated Port: **443**
 
-    ![In this screenshot, the 'Edit NAT rule collection' page is depicted with the required settings listed above selected.](images/hol-ex6-task2-edit-nat-rule-collection.png "Azure Firewall NAT Rules")
+    ![In this screenshot, the 'Edit NAT rule collection' page is depicted with the required settings listed above selected.](images/hol-ex6-task2-edit-nat-rule-collection.png "Azure Firewall NAT Rules for HTTP and HTTPS")
 
 7. Select **Save** and wait until the update completes.
 
-8. Back on the Azure Firewall **Rules** page, select **Network rule collection**. Then Select **+ Add Network Rule collection** and enter the following information to create a Network Rule for inbound traffic. This rule allows HTTP connectivity from any directly connected network targeting the frontend IP address of the load balancer.
+8. Back on the Azure Firewall **Rules (classic)** page, select **Network rule collection**. Then Select **+ Add Network Rule collection** and enter the following information to create a Network Rule for inbound traffic. This rule allows HTTP connectivity from any directly connected network targeting the frontend IP address of the load balancer.
 
     - Name: **NetworkRuleCollectionAllow1**
 
@@ -836,7 +838,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     - Destination ports: **80,443**
 
-9. Create another rule for Remote Desktop sessions from the Management subnet on WGVNet1.
+9. Create another rule for Remote Desktop sessions from the Management subnet on WGVNet1. The IP Addresses rules should look like the image below.
 
     - Rules name (IP Addresses): **IncomingMgmtRDP**
 
@@ -848,7 +850,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     - Destination ports: **3389**
 
-    ![In this screenshot, the 'Add network rule collection' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex6-task2-add-network-rule-mgmt-subnet.png "Azure Firewall Network Allow Rule")
+    ![In this screenshot, the 'IP Addresses' section of the 'Add network rule collection' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex6-task2-add-network-rule-mgmt-subnet.png "Azure Firewall IP Addresses section")
 
 10. Select **Add** and wait until the update completes.
 
@@ -858,11 +860,11 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
 2. Select **AppRT**, followed by **Subnets** and then select **+ Associate**.
 
-    ![In this screenshot, the AppRT - Subnets blade is depicted with Subnets selected on the left and the '+ Associate' button selected.](images/hol-ex6-task3-route-table-associate-button.png "Route table blade")
+    ![In this screenshot, the AppRT - Subnets blade is depicted with Subnets selected on the left and the '+ Associate' button selected.](images/hol-ex6-task3-route-table-associate-button.png "AppRT Route table blade")
 
 3. On the **Associate subnet** blade, select **WGVNet2** on the **Virtual network** drop down. Select **AppSubnet** on the **Subnet** dropdown.
 
-    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet2' virtual network and 'AppSubnet' subnet selected along with the 'OK' button.](images/hol-ex6-task3-associate-subnet-blade-wgvnet2.png "Associate subnet section")
+    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet2' virtual network and 'AppSubnet' subnet selected along with the 'OK' button.](images/hol-ex6-task3-associate-subnet-blade-wgvnet2.png "Associate subnet section for AppRT")
 
 4. Select **OK** at the bottom of the **Associate subnet** blade.
 
@@ -872,7 +874,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
 7. On the **Associate subnet** blade, select **WGVNet1** on the **Virtual network** drop down. Select **Management** on the **Subnet** dropdown.
 
-    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet1' virtual network and 'Management' subnet selected along with the 'OK' button.](images/hol-ex6-task3-associate-subnet-blade-wgvnet1.png "Associate subnet blade")
+    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet1' virtual network and 'Management' subnet selected along with the 'OK' button.](images/hol-ex6-task3-associate-subnet-blade-wgvnet1.png "Associate subnet blade for MgmtRT")
 
 8. Select **OK** at the bottom of the **Associate subnet** blade.
 
