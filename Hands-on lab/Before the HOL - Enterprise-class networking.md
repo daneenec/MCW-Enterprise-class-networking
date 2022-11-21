@@ -47,76 +47,7 @@ You must have a working Azure subscription [without a spending limit](https://le
 
 Duration: 15 minutes
 
-### Task 1: Create a virtual machine to execute the PowerShell commands in the lab
-
-If you are working on a machine that cannot run PowerShell, carry out this task. Only do this if you are not running the commands on your local machine and are provisioning a VM to perform the steps.
-
-1. Launch a browser, and navigate to <https://portal.azure.com>. Once prompted, login with your Microsoft Azure credentials. If asked, choose whether your account is an organization account or just a Microsoft Account.
-
-2. Expand the portal's left navigation by clicking **Expand portal menu** on the top left. Select **+ Create a resource** on the left navigation. In the search box, type in **Visual Studio 2022**, and press Enter. In the list of results, select **Visual Studio 2022**. From the drop down, select **Visual Studio 2022 Community on Windows Server 2022 (x64)**. Finally, select **Create**.
-
-    ![In this screenshot, the Visual Studio 2022 Azure Marketplace option is depicted with the Plan dropdown menu open with the required plan and Create button highlighted.](images/bhol-task1-setup-visual-studio.png "Visual Studio 2022 plan selection")
-
-3. On the **Create a virtual machine** blade, on the **Basics** tab, select the following configuration and select **Next : Disks**:
-
-    - Subscription: **If you have multiple subscriptions, choose the subscription to execute your labs in**.
-
-    - Resource Group: (Create new) **MCWLABRG**
-
-    - Virtual machine name: **LABVM**
-
-    - Region: **Choose the closest Azure region to you**.
-
-    - Availability options: **No infrastructure redundancy required**.
-
-    - Security: **Standard**
-
-    - Image: **Visual Studio 2022 Community on Windows Server 2022 (x64) - Gen 1**
-
-    - VM architecture: **x64**
-
-    - Size: **Standard DS1 v2** or **Standard D2s v3**
-
-    - User name: **demouser**
-
-    - Password/Confirm password: **demo@pass123**
-
-    - Public inbound ports: **Allow selected ports**.
-
-    - Select inbound ports: **RDP (3389)**
-
-    >**Note**: If the Azure Subscription you are using is **NOT** a trial Azure subscription, you may want to choose the **Standard D2s v3** to have more power in this LABVM. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with **Standard DS1 v2**.
-
-4. On the **Create a virtual machine** blade, on the **Disks** tab, select the following configuration and select **Review + create**:
-
-    - OS disk type: **Standard SSD**
-    - Delete with VM: **Checked**
-
-5. Ensure that the validation passed and select **Create**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
-
-    >**Note:** Please wait for the LABVM to be provisioned prior to moving to the next step.
-
-6. Wait for deployment status of **LABVM** to complete. Once the deployment blade displays the message **Your deployment is complete**, select **Go to resource**.
-
-7. On the **LABVM** blade, first select **Connect**, then select **RDP**, and then select **Download RDP File** to establish a Remote Desktop session.
-
-    ![In this screenshot, the virtual machine blade for the created VM is depicted with the Connect menu expanded. The Connect button and RDP option are highlighted.](images/bhol-task1-rdp-to-labvm-1.png "Azure Portal LABVM virtual machine page")
-
-8. Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
-
-9. Log in with the credentials specified during creation:
-
-    - User: **demouser**
-
-    - Password: **demo@pass123**
-
-10. You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Choose **Yes** to continue with the connection.
-
-    ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button highlighted.](images/bhol-task1-rdp-to-labvm-2.png "Remote Desktop Connection warning")
-
-11. Server Manager opens by default. Close Server Manager.
-
-### Task 2: Download hands-on lab step-by-step support files
+### Task 1: Download hands-on lab step-by-step support files
 
 1. Within the Remote Desktop session to **LABVM**, open Microsoft Edge (pinned in the taskbar) and download the zipped hands-on lab step-by-step student files by navigating to the following link: <https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab/labfiles/ECN-Hackathon.zip>
 
@@ -126,7 +57,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![In the Extract Compressed (Zipped) Folders dialog, files are being extracted to C:\\ECH-Hackathon, and the Extract button is highlighted.](images/bhol-task2-extract-ecn-hackathon-zip.png "Extract Compressed (Zipped) Folders dialog")
 
-### Task 3: Create a Virtual Network (hub) with Subnets
+### Task 2: Create a Virtual Network (hub) with Subnets
 
 1. Connect to the Azure portal. Expand the left navigation, and select **+ Create a resource**. In the **Search the Marketplace** box, search for and select **Virtual Network**, then select **Create**.
 
@@ -186,9 +117,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
      ![In this screenshot, the Azure portal Subnets blade of the WGVNet2 virtual network is depicted with the newly created subnets listed.](images/bhol-task3-subnets-table.png "WGVNet2 virtual network's subnets table")  
 
-### Task 4: Use the Azure portal for a template deployment
-
-> **Note:** If you have not downloaded the student files, complete [Task 2: Download hands-on-step-by-step support files](https://github.com/microsoft/MCW-Enterprise-class-networking/blob/master/Hands-on%20lab/Before%20the%20HOL%20-%20Enterprise-class%20networking.md#task-2-download-hands-on-lab-step-by-step-support-files).
+### Task 3: Use the Azure portal for a template deployment
 
 1. On your LABVM, open the **C:\\ECN-Hackathon** folder which contains the student files for this lab.
 
@@ -228,7 +157,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the parameters listed above selected with their proper values.](images/bhol-task4-custom-deployment-resource-group.png "Template blade")
 
-### Task 5: Validate the CloudShop application is up after the deployment
+### Task 4: Validate the CloudShop application is up after the deployment
 
 1. Using the Azure portal, open the **WGVNetRG2** resource group and review the deployment.
 
