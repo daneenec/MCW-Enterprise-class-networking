@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-November 2022
+December 2022
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -266,7 +266,7 @@ Duration: 20 Minutes
 
 Duration: 20 minutes
 
-In this exercise, you will restrict traffic between tiers of n-tier application by using network security groups and application security groups.
+In this exercise, you will restrict traffic between tiers of an n-tier application by using network security groups and application security groups.
 
 ### Task 1: Create application security groups
 
@@ -1300,7 +1300,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 3. Select **onpremvm*NNN*** then select **+Add diagnostic setting**.
 
-     ![In this screenshot, the Diagnostics logs blade of Network Watch is depicted. The 'Diagnostic Logs' menu option and the resources that starts with 'onpremvm' are highlighted.](images/hol-ex10-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic logs")
+     ![In this screenshot, the Diagnostics logs blade of Network Watch is depicted. The 'Diagnostic Logs' menu option and the network interface resource that starts with 'onpremvm' is highlighted.](images/hol-ex10-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic logs")
 
 4. Enter **OnPremDiag** as the name then select the checkbox for **Archive to a storage account**. On the **Storage accounts** drop down, select the available storage account you created earlier.
 
